@@ -15,8 +15,7 @@ x = np.matrix([
     [0, 1, 0, -1],
     [1, 1, 1, -1],
 ])
-x0, x1, x2, k = syms.symbols('x0,x1,x2 k');
-alpha = 1;
+x0, x1, x2, k = syms.symbols('x0,x1,x2 k');alpha = 1;
 k = syms.exp(-alpha * ((x0 - x[0, 0]) ** 2 + (x1 - x[0, 1]) ** 2 + (x2 - x[0, 2]) ** 2))
 
 step = 0;

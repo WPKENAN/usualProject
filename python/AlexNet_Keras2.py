@@ -42,11 +42,11 @@ def train(x,y):
 
     # 1st Dense Layer
     model.add(Dense(4096,activation='relu'))
-    model.add(Dropout(0.5))
+    model.add(Dropout(0.3))
 
     # 2nd Dense Layer
     model.add(Dense(4096,activation='relu'))
-    model.add(Dropout(0.5))
+    model.add(Dropout(0.3))
 
     # Output Layer
     model.add(Dense(17,activation='softmax'))
@@ -59,7 +59,7 @@ def train(x,y):
     print('Training -----------')
     tensorboard = TensorBoard(log_dir=os.getcwd()+'/llog')
     callback_lists = [tensorboard]  # 因为callback是list型,必须转化为list
-    history=model.fit(x,y,batch_size=len(x), epochs=100, verbose=1,shuffle=True,callbacks=callback_lists);
+    history=model.fit(x,y,batch_size=64, epochs=200, verbose=1,shuffle=True,callbacks=callback_lists);
     # model.fit(x, y, batch_size=64, epochs=1, verbose=1, \
     #           validation_split=0.2, shuffle=True)
 
@@ -81,9 +81,11 @@ def test(x,y):
     # print(result)
 
 if __name__=="__main__":
-    np.random.seed(1000)
+    # np.random.seed(1000)
 
-    x, y = oxflower17.load_data(one_hot=True);
+    x, y = oxflower17.load_data(dirname='C:/Users/Anzhi/Desktop/wp/data/17flowers',one_hot=True);
+    print(np.shape(x))
+    # exit();
     length=np.shape(x)[0];
     indexAll = list(range(0, length));
     random.shuffle(indexAll);
@@ -98,4 +100,4 @@ if __name__=="__main__":
     print("train*******************************************************")
     # train(x_train,y_train);
     print("test*******************************************************")
-    test(x_train,y_train);
+    test(x_test,y_test);
