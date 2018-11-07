@@ -26,7 +26,8 @@ def train(x,y):
     # Batch Normalisation
     model.add(BatchNormalization())
 
-    # 3rd Convolutional Layer
+
+    # 3rd Convoltional Layer
     model.add(Conv2D(filters=384, kernel_size=3, strides=1, activation='relu',padding='valid'))
 
     # 4th Convolutional Layer
@@ -83,7 +84,7 @@ def test(x,y):
 if __name__=="__main__":
     # np.random.seed(1000)
 
-    x, y = oxflower17.load_data(dirname='C:/Users/Anzhi/Desktop/wp/data/17flowers',one_hot=True);
+    x, y = oxflower17.load_data(dirname='C:/Users/Anzhi/Desktop/github/data/17flowers',one_hot=True);
     print(np.shape(x))
     # exit();
     length=np.shape(x)[0];
