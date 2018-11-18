@@ -26,9 +26,7 @@ def merge_pdf(infnList, outfn):
 
 
 if __name__ == '__main__':
-    inPath =["C:/Users/Anzhi/Desktop/Rademacher1.pdf","C:/Users/Anzhi/Desktop/Rademacher2.pdf"
-            ,"C:/Users/Anzhi/Desktop/Rademacher3.pdf","C:/Users/Anzhi/Desktop/Rademacher4.pdf"
-            ,"C:/Users/Anzhi/Desktop/svm11.pdf"]
+    inPath =["C:/Users/Anzhi/Desktop/图像处理/封面.pdf","C:/Users/Anzhi/Desktop/图像处理/正文.pdf"]
     outPath=inPath[0].split('.')[0]+"_result.pdf"
     # split_pdf(inPath, outPath)
     merge_pdf(inPath[0:4],outPath)
