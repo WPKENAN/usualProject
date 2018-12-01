@@ -13,7 +13,9 @@ def split_pdf(infn, outfn):
 
 def merge_pdf(infnList, outfn):
     pdf_output = PdfFileWriter()
+    count=0
     for infn in infnList:
+        count=count+1
         pdf_input = PdfFileReader(open(infn, 'rb'))
         # 获取 pdf 共用多少页
         page_count = pdf_input.getNumPages()
@@ -26,7 +28,7 @@ def merge_pdf(infnList, outfn):
 
 
 if __name__ == '__main__':
-    inPath =["C:/Users/Anzhi/Desktop/图像处理/封面.pdf","C:/Users/Anzhi/Desktop/图像处理/正文.pdf"]
+    inPath =["C:/Users/Anzhi/Desktop/操作系统/封面.pdf","C:/Users/Anzhi/Desktop/操作系统/正文.pdf"]
     outPath=inPath[0].split('.')[0]+"_result.pdf"
     # split_pdf(inPath, outPath)
-    merge_pdf(inPath[0:4],outPath)
+    merge_pdf(inPath,outPath)
