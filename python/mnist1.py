@@ -1,7 +1,8 @@
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
-mnist=input_data.read_data_sets("C:/Users/Anzhi/Desktop/wp/data/MNIST_data/",one_hot=True);
+mnist=input_data.read_data_sets("D:\github\Data\MNIST_data\\",one_hot=True);
+
 x=tf.placeholder('float',[None,784]);
 w=tf.Variable(tf.zeros([784,10]));
 b=tf.Variable(tf.zeros([10]));
