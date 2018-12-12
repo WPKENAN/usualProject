@@ -23,14 +23,21 @@
 #     for i in datalist:
 #         print(i)
 
-file=open("D:\wp\BaiduNetdiskDownload\homework\\data.txt");
+# file=open("D:\wp\BaiduNetdiskDownload\homework\\data.txt");
+# contents=file.readlines();
+#
+# for i in range(len(contents)):
+#     str=("D:\wp\BaiduNetdiskDownload\homework\\new\\%d.txt")%(i)
+#     tmp=open(str,"w");
+#     tmp.write(contents[i])
+#     tmp.close();
+#     if i>1000:
+#         break
+# file.close()
+path="E:\\18.txt"
+file=open(path);
 contents=file.readlines();
+output=open("E:\\cmy.txt",'w');
 
-for i in range(len(contents)):
-    str=("D:\wp\BaiduNetdiskDownload\homework\\new\\%d.txt")%(i)
-    tmp=open(str,"w");
-    tmp.write(contents[i])
-    tmp.close();
-    if i>1000:
-        break
-file.close()
+for i in len(contents):
+    contents[i]=contents[i].strip('\n');

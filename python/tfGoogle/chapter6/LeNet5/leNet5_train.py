@@ -77,7 +77,7 @@ def train(mnist):
     # +初始化tf持久化类
     saver = tf.train.Saver()
     # 初始化会话，并开始训练
-    with tf.Session() as sess:
+    with tf.Session(config=tf.ConfigProto(device_count={'cpu':0})) as sess:
         # init_op = tf.initialize_all_variables()
         # sess.run(init_op)
         # 初始化所有参数，同上面两句作用一致

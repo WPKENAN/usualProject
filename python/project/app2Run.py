@@ -4,10 +4,8 @@ import subprocess
 import signal
 import time
 
-
 class TimeoutError(Exception):
     pass
-
 
 def command(cmd, timeout=60):
     """Run command and return the output
@@ -37,6 +35,7 @@ def command(cmd, timeout=60):
 
 # os.system("D:/v3d_external/bin/vaa3d_msvc.exe /x D:/vaa3d_tools/bin/plugins/neuron_tracing\Vaa3D_Neuron2/vn2.dll /f app2 /i D:/soamdata/test/test.v3draw /p 100 0 -1")
 #D:/v3d_external/bin/vaa3d_msvc.exe /x D:/vaa3d_tools/bin/plugins/neuron_tracing/Vaa3D_Neuron2/vn2.dll /f app2 /i  D:\soamdata\6\most\test\18454-1.v3draw /p "" 0 -1
+#D:/v3d_external/bin/vaa3d_msvc.exe /x D:/vaa3d_tools/bin/plugins/neuron_tracing/Vaa3D_Neuron2/vn2.dll /f app3 /i  D:\soamdata\6\most\test\18454-1.v3draw /p "" 0 -1
 def app2(path):
     print("app2 start:")
     files = os.listdir(path)
@@ -119,6 +118,6 @@ if __name__ == '__main__':
     # app1(path1);
     # path2 = "D:\soamdata\\7\mouseID_321237-17302\\app2"
     # app2(path2);
-    path3 = "D:\soamdata\\7\mouseID_321237-17302\\app2"
-    app3(path3)
-
+    # path3 = "D:\soamdata\\7\mouseID_321237-17302\\app2"
+    # app3(path3)
+    print("dsa")

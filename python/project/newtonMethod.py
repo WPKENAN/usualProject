@@ -45,6 +45,4 @@ e=1e-10;
 count,middle=bisection(left,right,e);
 print("迭代%d次得到的根是%f" %(count,middle))
 
-from scipy.optimize import leastsq
 
-leastsq()
