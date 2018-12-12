@@ -1,0 +1,6 @@
+model_checkpoint_path: "mode-9901"
+all_model_checkpoint_paths: "mode-9501"
+all_model_checkpoint_paths: "mode-9601"
+all_model_checkpoint_paths: "mode-9701"
+all_model_checkpoint_paths: "mode-9801"
+all_model_checkpoint_paths: "mode-9901"
