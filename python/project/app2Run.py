@@ -118,6 +118,7 @@ if __name__ == '__main__':
     # app1(path1);
     # path2 = "D:\soamdata\\7\mouseID_321237-17302\\app2"
     # app2(path2);
-    # path3 = "D:\soamdata\\7\mouseID_321237-17302\\app2"
-    # app3(path3)
-    print("dsa")
+    path3 = "D:\\soamdata\\7\\mouseID_321237-17302\\app3.1"
+    path32="D:\\soamdata\\7\mouseID_321237-17302\\app3.2"
+    app3(path32)
+    # print("dsa")

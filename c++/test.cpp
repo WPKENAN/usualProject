@@ -1,4 +1,5 @@
 #include "iostream"
+#include <fstream>
 using namespace std;
 
 int main(){
@@ -19,15 +20,31 @@ int main(){
 	// cout << c << endl; 
 	// cout << (int)c << endl;
 	// return 0;
-	int m=2;
-	int n=4;
-	int **p=new int*[m];
-	for(int i=0; i<m; i++) 
-   		p[i]=new int[n];
-   	for(int i=0;i<m;i++){
-   		for(int j=0;j<n;j++){
-   			cout << p[i][j] << endl;
-   		}
-   		cout << " ======" << endl;
-   	}
+	// int m=2;
+	// int n=4;
+	// int **p=new int*[m];
+	// for(int i=0; i<m; i++) 
+ //   		p[i]=new int[n];
+ //   	for(int i=0;i<m;i++){
+ //   		for(int j=0;j<n;j++){
+ //   			cout << p[i][j] << endl;
+ //   		}
+ //   		cout << " ======" << endl;
+ //   	}
+
+	ifstream ifile; 
+	ifile.open( "C:\\Users\\Anzhi\\Desktop\\18.txt" );
+	float a;
+	float b;
+	float c;
+	while(ifile >> a >> b >> c){
+	
+		cout << a << " " << b << " " << c << endl;	
+		// cout << dot << endl;
+	}
+	cout << "stop" << endl;
+	ifile.close();
+	// return 0;
+	return 0;
+
 }
