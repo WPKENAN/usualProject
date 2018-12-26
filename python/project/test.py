@@ -34,10 +34,31 @@
 #     if i>1000:
 #         break
 # file.close()
-path="E:\\18.txt"
-file=open(path);
-contents=file.readlines();
-output=open("E:\\cmy.txt",'w');
+# path="E:\\18.txt"
+# file=open(path);
+# contents=file.readlines();
+# output=open("E:\\cmy.txt",'w');
+#
+# for i in len(contents):
+#     contents[i]=contents[i].strip('\n');
 
-for i in len(contents):
-    contents[i]=contents[i].strip('\n');
+# coding=utf-8
+# import cv2
+# import numpy as np
+#
+# img = cv2.imread("C:\\Users\\Anzhi\\Desktop\\1.png", 0)
+#
+# # print(cv2.split(img))
+# # print(np.shape(img))
+# # (b,g,r)=cv2.split(img)
+# cv2.imshow('img', img)
+# gray_lap = cv2.Laplacian(img,0,ksize = 3)
+# # print(np.shape(gray_lap))
+# tmp=img-gray_lap
+# # dst = cv2.convertScaleAbs(gray_lap)
+#
+# cv2.imshow('laplacian', gray_lap)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+file=open("a.txt",'w');

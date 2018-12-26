@@ -1,0 +1,9 @@
+input1 = D:\soamdata\17302\splitTofolders3.1\ID(1)_16232.000_15508.000_3058.000\16232.000_15508.000_3058.000.v3draw_x222_y354_z144_app2.swc
+intput2 = D:\soamdata\17302\splitTofolders3.1\ID(1)_16232.000_15508.000_3058.000\16232.000_15508.000_3058.000.v3draw_x254_y254_z254_app2.swc
+entire-structure-average (from neuron 1 to 2) = 67.7076
+entire-structure-average (from neuron 2 to 1) = 76.6565
+average of bi-directional entire-structure-averages = 72.1821
+differen-structure-average = 72.1821
+percent of different-structure (from neuron 1 to 2) = 1
+percent of different-structure (from neuron 2 to 1) = 1
+percent of different-structure (average)= 1
