@@ -7,8 +7,9 @@ import tensorflow as tf
 from tensorflow.python.platform import gfile
 
 # 图片数据文件位置，在这个文件里，每个子文件夹下代表需要区分的类别，每个子文件夹里存放了对应类别的图片
-INPUT_DATA = 'D:\github\Data\CT_head\head_addNormal\head_addNormal'
-
+# INPUT_DATA = 'D:\github\Data\CT_head\head_addNormal\head_addNormal'
+# INPUT_DATA="D:\github\Data\CT_head\head-ct-hemorrhage\split"
+INPUT_DATA="D:\github\Data\CT_head\head_addNormal\head_addNormal"
 log_dir=INPUT_DATA+"\\..\\log"
 # Inception-v3模型瓶颈层的节点个数
 BOTTLENECK_TENSOR_SIZE = 2048
@@ -31,8 +32,8 @@ VALIDATION_PERCENTAGE = 20
 TEST_PERCENTAGE = 0
 # 定义神经网络的设置
 LEARNING_RATE = 0.01
-STEPS = 5000
-BATCH = 50
+STEPS = 4000
+BATCH = 200
 
 
 # 将数据文件夹的图片按照训练，验证和测试数据分开
@@ -237,6 +238,7 @@ def main():
 
     # 定义一层全链接层来解决新的图片分类的问题，因为训练好的Inception-v3模型已经将原始的图片抽象为更加容易分类的特征向量，
     # 因此不需要再训练那么复杂的神经网络来完成这个新的分类任务
+
     with tf.name_scope('final_training_ops'):
         weights = tf.Variable(tf.truncated_normal([BOTTLENECK_TENSOR_SIZE, n_classes], stddev=0.001))
         biases = tf.Variable(tf.zeros([n_classes]))
@@ -284,8 +286,8 @@ def main():
             # print('Step %d: Train accuracy on random sampled %d examples = %.1f%%' %
             #       (i, BATCH, train_accuracy * 100))
             # 在验证数据上测试正确率
-            if i % 100 == 0 or i + 1 == STEPS:
-                saver.save(sess, MODEL_2015TRAIN, global_step=100)
+            if i % 10 == 0 or i + 1 == STEPS:
+                saver.save(sess, MODEL_2015TRAIN, global_step=10)
                 validation_bottlenecks, validation_ground_truth = get_random_cached_bottlenecks(
                     sess, n_classes, image_lists, BATCH, 'validation', jpeg_data_tensor, bottleneck_tensor)
                 summary,validation_accuracy = sess.run([merged,evaluation_step], feed_dict={

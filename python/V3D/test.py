@@ -121,16 +121,7 @@ def _20190107_3(teraflyFolder, apoPath, v3drawFolder):
                  "/i  {} {}  {} /p 600 600 600".format(teraflyFolder, apoPath, v3drawFolder)
     os.system(commandStr)
 
-if __name__=="__main__":
-    # _20181224_()
-    # _20181228_()
-    # _20190103_();
-
-    # startTime = time.asctime(time.localtime(time.time()))
-    # _20190107_();
-    # endTime = time.asctime(time.localtime(time.time()))
-    # print("startTime:{}".format(startTime))
-    # print("endTime:{}".format(endTime))
+def _20190107_4():
 
     # manual
     teraflyFolder = "E:\mouse18454_teraconvert\RES(26298x35000x11041)"
@@ -148,5 +139,162 @@ if __name__=="__main__":
     # _20190107_2(apoPath,splitFolderApp2,0)
     _20190107_3(teraflyFolder,apoPath,v3drawFolder)
 
+def _20190108_():
+    path="C:\\Users\Anzhi\\Desktop\\data.txt"
+    file=open(path)
+    lines=file.readlines();
+    tmp=[]
+    for i in range(len(lines)):
+        lines[i]=lines[i].strip('\n');
+        lines[i]=lines[i].split(',');
+        tmp.append(int(lines[i][3]))
+    print(lines)
+    print(len(lines))
+    print(tmp)
+    tmp.sort(reverse=True)
+    print(tmp)
+
+    outfile=open(path+"\\..\\out.marker",'w')
+    outfile.write("##x,y,z,radius,shape,name,comment, color_r,color_g,color_b\n")
+    for i in range(len(lines)):
+        outfile.write("{},{},{},{},{},{},{},{},{},{}\n".format(lines[i][0],lines[i][1],lines[i][2],3,0,0,0,125,0,0))
+
+def _20190112_():
+    path = 'D:\\soamdata\\17302\\17302.apo'
+    file = open(path)
+    contents = file.readlines();
+    outfile = open(path + "\\..\\level6.apo", 'w');
+    for line in contents:
+
+        line = line.strip('\n');
+        line = line.split(',');
+        if '#' not in line[0]:
+            line[4] = float(line[4]) / 2
+            line[5] = float(line[5]) / 2
+            line[6] = float(line[6]) / 2
+
+        for i in range(len(line) - 1):
+            if i == 4:
+                outfile.write(" ")
+            outfile.write("{},".format(line[i]));
+        outfile.write("{}\n".format(line[len(line) - 1]))
+
+def _20190112_1(teraflyFolder, apoPath, v3drawFolder):
+    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x D:\\vaa3d_tools\\bin\plugins\\image_geometry\\crop3d_image_series\\cropped3DImageSeries.dll /f cropTerafly " \
+                 "/i  {} {}  {} /p 256 256 256".format(teraflyFolder, apoPath, v3drawFolder)
+    os.system(commandStr)
+
+def _20190112_2(apoPath, v3drawFolder):
+    apofile = open(apoPath);
+    apolines = apofile.readlines();
+    apolist = [];
+    dict = {}
+    for line in apolines:
+        z, x, y = line.split(',')[4:7]
+        id = line.split(',')[2]
+        # print(x,y,z)
+        if line[0] == "#":
+            continue;
+        id = int(id);
+        z = float(z);
+        y = float(y);
+        x = float(x);
+        apolist.append([id, x, y, z]);
+        dict["{:.1f}_{:.1f}_{:.1f}.v3draw".format(x, y, z)] = id;
+    apolist = sorted(apolist, key=lambda x: x[0])
+    print(apolist)
+    print(dict)
+    count = 0;
+    for file in os.listdir(v3drawFolder):
+        # print(file)
+        count = count + 1
+        if file in dict:
+            if os.path.exists(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file)):
+                os.remove(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
+            # print(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file));
+            os.rename(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
+
+def _20190116_3(teraflyFolder, apoPath, v3drawFolder):
+    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x D:\\vaa3d_tools\\bin\plugins\\image_geometry\\crop3d_image_series\\cropped3DImageSeries.dll /f cropTerafly " \
+                 "/i  {} {}  {} /p  976 976 196".format(teraflyFolder, apoPath, v3drawFolder)
+    os.system(commandStr)
 
 
+def _20190116_2(apoPath, v3drawFolder):
+    apofile = open(apoPath);
+    apolines = apofile.readlines();
+    apolist = [];
+    dict = {}
+    for line in apolines:
+        z, x, y = line.split(',')[4:7]
+        id = line.split(',')[2]
+        # print(x,y,z)
+        if line[0] == "#":
+            continue;
+        id = int(id);
+        z = float(z);
+        y = float(y);
+        x = float(x);
+        apolist.append([id, x, y, z]);
+        dict["{:.3f}_{:.3f}_{:.3f}.v3draw".format(x, y, z)] = id;
+    apolist = sorted(apolist, key=lambda x: x[0])
+    print(apolist)
+    print(dict)
+    count = 0;
+    for file in os.listdir(v3drawFolder):
+        # print(file)
+        count = count + 1
+        if file in dict:
+            if os.path.exists(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file)):
+                os.remove(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
+            # print(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file));
+            os.rename(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
+
+def _20190116_1(v3drawFile,tifFile):
+    commandStr=commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x mipZSlices.dll  /f mip_zslices  " \
+                 "/i  {} /p  1:1:e /o {}".format(v3drawFile, tifFile)
+    os.system(commandStr)
+
+def _20190116_0(v3drawFolder,tifFolder):
+    for i in os.listdir(v3drawFolder):
+        # print(i[:-7])
+        if i[-6:]=="v3draw":
+            print(v3drawFolder+"\\..\\"+i)
+            _20190116_1(v3drawFolder+"\\"+i,tifFolder+"\\"+i[:-7]+".tif");
+
+def _20190116_zyb():
+    file=open("C:\\Users\\Anzhi\\Desktop\\zyb.txt",'r', encoding='UTF-8');
+    lines=file.readlines();
+    for i in range(len(lines)):
+        lines[i]=lines[i].strip('\n');
+        lines[i]=lines[i].split(' ')
+        # print(lines[i])
+        lines[i]=lines[i][0].split('\t')
+        print(lines[i])
+
+    outfile=open("C:\\Users\\Anzhi\\Desktop\\out.txt",'w',encoding='UTF-8');
+    for line in lines:
+        for item in line:
+            outfile.write(item);
+            outfile.write('\n')
+
+
+
+if __name__=="__main__":
+    # _20181224_()
+    # _20181228_()
+    # _20190103_();
+
+    # _20190108_()
+    # _20190112_();
+    # _20190112_1('E:\mouseID_321237-17302\RES(27300x17206x4923)','D:\\soamdata\\17302\\level6.apo','D:\\soamdata\\17302\level6')
+    # _20190112_2('D:\\soamdata\\17302\\level6.apo','D:\\soamdata\\17302\level6')
+    # _20190116_3('E:\mouseID_321237-17302\RES(54600x34412x9847)','D:\\soamdata\\17302\\17302_74_.apo','D:\\soamdata\\17302\\unet_examples\\level7')
+    # _20190116_2('D:\\soamdata\\17302\\17302.apo', 'D:\\soamdata\\17302\\unet_examples\\level7')
+
+    # _20190116_3('E:\mouseID_321237-17302\RES(27300x17206x4923)', 'D:\\soamdata\\17302\\level6_74_.apo','D:\\soamdata\\17302\\unet_examples\\level6')
+    # _20190116_2('D:\\soamdata\\17302\\level6.apo','D:\\soamdata\\17302\\unet_examples\\level6')
+    # _20190116_0('D:\\soamdata\\17302\\unet_examples\\level7','D:\\soamdata\\17302\\unet_examples\\level7\\tif')
+    # _20190116_0('D:\\soamdata\\17302\\unet_examples\\unet_examples', 'D:\\soamdata\\17302\\unet_examples\\unet_examples')
+    # _20190116_zyb()
+    _20190116_2('D:\\soamdata\\17302\\17302.apo', 'D:\soamdata\\17302\\unet_examples\\unet_examples\\unix\\level7_976_unet_new')

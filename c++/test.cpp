@@ -1,5 +1,7 @@
 #include "iostream"
 #include <fstream>
+#include "string.h"
+
 using namespace std;
 
 int main(){
@@ -32,19 +34,35 @@ int main(){
  //   		cout << " ======" << endl;
  //   	}
 
-	ifstream ifile; 
-	ifile.open( "C:\\Users\\Anzhi\\Desktop\\18.txt" );
-	float a;
-	float b;
-	float c;
-	while(ifile >> a >> b >> c){
+	// ifstream ifile; 
+	// ifile.open( "C:\\Users\\Anzhi\\Desktop\\18.txt" );
+	// float a;
+	// float b;
+	// float c;
+	// while(ifile >> a >> b >> c){
 	
-		cout << a << " " << b << " " << c << endl;	
-		// cout << dot << endl;
-	}
-	cout << "stop" << endl;
-	ifile.close();
+	// 	cout << a << " " << b << " " << c << endl;	
+	// 	// cout << dot << endl;
+	// }
+	// cout << "stop" << endl;
+	// ifile.close();
 	// return 0;
+	// int b=10;
+	// int *a=&b;
+	// int *d = (int *)a;
+	// *a=20;
+	// cout << *d << endl;
+	// b=4;
+	// cout << b << endl;
+	// cout << *a << endl;
+	// int c= *a;
+	// cout << c << endl;
+	// *a=10;
+	// cout << *a << b << c << endl; 
+	char *a="abcd";
+	string result="app";
+	cout <<  (string)a << endl;
+	cout << ((string)a).length() << endl;
 	return 0;
 
 }

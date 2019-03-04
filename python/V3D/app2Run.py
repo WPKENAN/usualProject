@@ -33,9 +33,10 @@ def command(cmd, timeout=60):
         print("进度:{0}%".format(seconds_passed*100/timeout), end="\r")
     return p.stdout.read()
 
-# os.system("D:/v3d_external/bin/vaa3d_msvc.exe /x D:/vaa3d_tools/bin/plugins/neuron_tracing\Vaa3D_Neuron2/vn2.dll /f app2 /i D:/soamdata/test/test.v3draw /p 100 0 -1")
+#os.system("D:/v3d_external/bin/vaa3d_msvc.exe /x D:/vaa3d_tools/bin/plugins/neuron_tracing\Vaa3D_Neuron2/vn2.dll /f app2 /i D:/soamdata/test/test.v3draw /p 100 0 -1")
 #D:/v3d_external/bin/vaa3d_msvc.exe /x D:/vaa3d_tools/bin/plugins/neuron_tracing/Vaa3D_Neuron2/vn2.dll /f app2 /i  D:\soamdata\6\most\test\18454-1.v3draw /p "" 0 -1
 #D:/v3d_external/bin/vaa3d_msvc.exe /x D:/vaa3d_tools/bin/plugins/neuron_tracing/Vaa3D_Neuron2/vn2.dll /f app3 /i  D:\soamdata\6\most\test\18454-1.v3draw /p "" 0 -1
+
 def app2(path):
     print("app2 start:")
     files = os.listdir(path)

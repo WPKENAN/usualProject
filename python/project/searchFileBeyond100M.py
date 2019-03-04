@@ -45,6 +45,7 @@ if __name__=='__main__':
     allFile=[]
     # test()
     gci("D:\\github\\usualProject",allFile);
+    # gci("D:\\github\\doc", allFile);
     print("文件总数:%d"%(len(allFile)));
     # paths = recursiveSearchFiles("D:\github\Data", "*.*")  # windows path
     paths=sorted(allFile,key=lambda x:os.path.getsize(x),reverse=True)

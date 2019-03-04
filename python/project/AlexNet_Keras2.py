@@ -86,6 +86,7 @@ if __name__=="__main__":
 
     x, y = oxflower17.load_data(dirname='C:/Users/Anzhi/Desktop/github/data/17flowers',one_hot=True);
     print(np.shape(x))
+
     # exit();
     length=np.shape(x)[0];
     indexAll = list(range(0, length));
