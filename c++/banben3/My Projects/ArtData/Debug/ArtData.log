@@ -1,0 +1,21 @@
+﻿Build started 2019/3/22 21:24:17.
+     1>Project "D:\github\usualProject\c++\banben2\My Projects\ArtData\ArtData.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\Debug\ArtData.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Copying contents file...
+         已复制         1 个文件。
+         Making help include file...
+         Making help file...
+     1>hlp\ArtData.hpj(1): error : 
+         Microsoft (R) Help Compiler
+         HCRTF 4.03.0002
+         Copyright (c) Microsoft Corp 1990 - 1995. All rights reserved.
+         artdata.hpj 
+     1>HC5011 : error : artdata.hpj  :
+         	Cannot open the file "C:\Documents and Settings\XPMUser\桌面\ArtData\hlp\ArtData.hm."
+     1>Done Building Project "D:\github\usualProject\c++\banben2\My Projects\ArtData\ArtData.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.55

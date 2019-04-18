@@ -1,0 +1,85 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ArtData - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\Anzhi\AppData\Local\Temp\RSPB9A9.bat" with contents
+[
+@echo off
+start /wait hcw /C /E /M "hlp\ArtData.hpj"
+if errorlevel 1 goto :Error
+if not exist "hlp\ArtData.hlp" goto :Error
+copy "hlp\ArtData.hlp" .\Debug
+goto :done
+:Error
+echo hlp\ArtData.hpj(1) : error:
+type "hlp\ArtData.log"
+:done
+]
+Creating command line "C:\Users\Anzhi\AppData\Local\Temp\RSPB9A9.bat"
+Creating temporary file "C:\Users\Anzhi\AppData\Local\Temp\RSPB9AA.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/ArtData.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\github\usualProject\c++\banben3\My Projects\ArtData\ArtDataView.cpp"
+]
+Creating command line "cl.exe @C:\Users\Anzhi\AppData\Local\Temp\RSPB9AA.tmp" 
+Making help file...
+hlp\ArtData.hpj(1) : error:
+Microsoft (R) Help Compiler
+HCRTF 4.03.0002
+Copyright (c) Microsoft Corp 1990 - 1995. All rights reserved.
+artdata.hpj
+    HC5011: Error: artdata.hpj : 
+ Cannot open the file "C:\Documents and Settings\XPMUser\×ÀÃæ\ArtData\hlp\ArtData.hm."
+Creating temporary file "C:\Users\Anzhi\AppData\Local\Temp\RSPBA57.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/ArtData.pdb" /debug /machine:I386 /out:"Debug/ArtData.exe" /pdbtype:sept 
+".\Debug\AnalDlg.obj"
+".\Debug\AnalDlg2.obj"
+".\Debug\ArtData.obj"
+".\Debug\ArtDataDoc.obj"
+".\Debug\ArtDataView.obj"
+".\Debug\CardDlg.obj"
+".\Debug\ClrDatDlg.obj"
+".\Debug\DatSavDlg.obj"
+".\Debug\MainFrm.obj"
+".\Debug\StdAfx.obj"
+".\Debug\ArtData.res"
+".\v4501v.lib"
+]
+Creating command line "link.exe @C:\Users\Anzhi\AppData\Local\Temp\RSPBA57.tmp"
+<h3>Output Window</h3>
+Compiling...
+ArtDataView.cpp
+D:\github\usualProject\c++\banben3\My Projects\ArtData\ArtDataView.cpp(159) : warning C4101: 'strErrorMsg' : unreferenced local variable
+D:\github\usualProject\c++\banben3\My Projects\ArtData\ArtDataView.cpp(157) : warning C4101: 'dwErrorCode' : unreferenced local variable
+D:\github\usualProject\c++\banben3\My Projects\ArtData\ArtDataView.cpp(756) : warning C4101: 'strErrorMsg' : unreferenced local variable
+D:\github\usualProject\c++\banben3\My Projects\ArtData\ArtDataView.cpp(757) : warning C4101: 'dwErrorCode' : unreferenced local variable
+Linking...
+Creating temporary file "C:\Users\Anzhi\AppData\Local\Temp\RSPBB42.tmp" with contents
+[
+/nologo /o"Debug/ArtData.bsc" 
+".\Debug\StdAfx.sbr"
+".\Debug\AnalDlg.sbr"
+".\Debug\AnalDlg2.sbr"
+".\Debug\ArtData.sbr"
+".\Debug\ArtDataDoc.sbr"
+".\Debug\ArtDataView.sbr"
+".\Debug\CardDlg.sbr"
+".\Debug\ClrDatDlg.sbr"
+".\Debug\DatSavDlg.sbr"
+".\Debug\MainFrm.sbr"]
+Creating command line "bscmake.exe @C:\Users\Anzhi\AppData\Local\Temp\RSPBB42.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+ArtData.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

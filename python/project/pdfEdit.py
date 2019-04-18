@@ -23,15 +23,19 @@ def merge_pdf(infnList, outfn):
         print(page_count)
         for i in range(page_count):
             pdf_output.addPage(pdf_input.getPage(i))
+        # pdf_output.encrypt()
     pdf_output.write(open(outfn, 'wb'))
 
 
 
 
 if __name__ == '__main__':
-    # inPath =["C:/Users/Anzhi/Desktop/操作系统/封面.pdf","C:/Users/Anzhi/Desktop/操作系统/正文.pdf"]
-    # outPath=inPath[0].split('.')[0]+"_result.pdf"
+    inPath =["C:/Users/Anzhi/Desktop/PDF/1.pdf","C:/Users/Anzhi/Desktop/PDF/2.pdf",
+             "C:/Users/Anzhi/Desktop/PDF/3.pdf","C:/Users/Anzhi/Desktop/PDF/4.pdf",
+             "C:/Users/Anzhi/Desktop/PDF/5.pdf","C:/Users/Anzhi/Desktop/PDF/6.pdf",
+             "C:/Users/Anzhi/Desktop/PDF/7.pdf","C:/Users/Anzhi/Desktop/PDF/8.pdf"]
+    outPath=inPath[0].split('.')[0]+"_result.pdf"
     # split_pdf(inPath, outPath)
-    # merge_pdf(inPath,outPath)
-    infn="C:\\Users\\Anzhi\\Desktop\\1.pdf"
-    split_pdf(infn,infn)
+    merge_pdf(inPath,outPath)
+    # infn="C:\\Users\\Anzhi\\Desktop\\1.pdf"
+    # split_pdf(infn,infn)

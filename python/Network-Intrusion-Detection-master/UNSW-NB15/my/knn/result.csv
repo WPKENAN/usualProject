@@ -1,0 +1,5 @@
+accuracy,0.75308507
+recall,0.856216359
+precision,0.737558195
+f1score,0.792470165
+confusion_matrix,23189,13811,6518,38814

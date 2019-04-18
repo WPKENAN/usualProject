@@ -72,8 +72,8 @@ def createMarker(apoPath,splitFolder,isMul=1):
     # print(len(markers))
     for marker in markers:
         # print(marker)
-        if not os.path.exists(splitFolder + "\\" + "ID({})_{:.3f}_{:.3f}_{:.3f}".format(marker[-1],marker[0], marker[1], marker[2])):
-            continue
+        # if not os.path.exists(splitFolder + "\\" + "ID({})_{:.3f}_{:.3f}_{:.3f}".format(marker[-1],marker[0], marker[1], marker[2])):
+        #     continue
         outfile = open(splitFolder + "\\" + "ID({})_{:.3f}_{:.3f}_{:.3f}".format(marker[-1],marker[0], marker[1], marker[2]) + "\\" + "ID({})_{:.3f}_{:.3f}_{:.3f}.v3draw.marker".format(marker[-1],marker[0], marker[1], marker[2]),'w')
         # print(outfile)
         outfile.write("##x,y,z,radius,shape,name,comment, color_r,color_g,color_b\n")
@@ -97,13 +97,13 @@ def createMarker(apoPath,splitFolder,isMul=1):
                     outfile.write("{:.3f},{:.3f},{:.3f},0, 1, , , 246,63,17\n".format(tmpMarker[0]-marker[0]+256,tmpMarker[1]-marker[1]+256,tmpMarker[2]-marker[2]+256));
                 # if max(abs(tmpMarker[0]-marker[0]),abs(tmpMarker[1]-marker[1]),abs(tmpMarker[2]-marker[2]))!=0:
                 nearIds.append(tmpMarker[3])
-        if count>0:
+        if count>1:
             mulmarker.append([marker,count,nearIds]);
         outfile.close();
 
     mulmarker=sorted(mulmarker,key=lambda x:x[0][3],reverse=False)
     print("there are {} mulMarkers".format(len(mulmarker)))
-    print(mulmarker)
+    # print(mulmarker)
 
     if os.path.exists(splitFolder+"\\..\\somaBlock.csv"):
         return;
@@ -377,7 +377,9 @@ def outputExcel(distanceFolder):
     name = list(data.keys());
     name.sort();
 
+
     for i in name:
+        print(i)
         # print(distanceFolder+i+".csv")
         outfile = open(distanceFolder + "\\..\\" + i + ".csv", 'w');
         # print("{},{},{},{},{},{},{}".format("manual_To_"+i.split('s')[-1],i.split('s')[-1]+"_To_manual","average of bi-directional entire-structure-averages","differen-structure-average ",4,5,6))
@@ -388,8 +390,9 @@ def outputExcel(distanceFolder):
             # print(j)
             if j[0]<0:
                 continue
-            outfile.write("{},{},{},{},{},{},{}\n".
-                          format(j[0], j[1], j[2], j[3], j[4], j[5], j[6]))
+            outfile.write("{},{},{},{},{},{},{},{}\n".
+                          format(j[0], j[1], j[2], j[3], j[4], j[5], j[6],j[7]))
+
 def mergeExcel(somaBlockCsv,disCsvList):
     somaBlock={};
     file=open(somaBlockCsv);
@@ -415,7 +418,7 @@ def mergeExcel(somaBlockCsv,disCsvList):
 
             line = lines[i].strip('\n');
             line = line.split(',');
-            print(line)
+            # print(line)
             if i==0:
                 for j in range(len(line)):
                     somaBlock[0].append(line[j]);
@@ -425,7 +428,7 @@ def mergeExcel(somaBlockCsv,disCsvList):
         file.close()
 
     # print("out2")
-    print(somaBlock[10])
+    # print(somaBlock[10])
     outfile=open(somaBlockCsv+"\\..\\result.csv",'w');
     for i in somaBlock:
         for j in somaBlock[i]:
@@ -435,14 +438,79 @@ def mergeExcel(somaBlockCsv,disCsvList):
     # print("out3")
 
 
+def outputMultiExcel(distanceFolder):
+    data = {}
+    for i in os.listdir(distanceFolder):
+        tmplines = np.zeros((500, 8)) - 1;
+        # print(i)
+        for j in os.listdir(os.path.join(distanceFolder, i)):
+            tmpline = [];
+            id = int(re.findall("\((.+?)\)", j)[0])
+            # print(id)
+            distanceFile = open(os.path.join(distanceFolder, i, j));
+            lines = distanceFile.readlines();
+            tmpline.append(id)
+            for line in lines:
+                if line[0] == 'i':
+                    continue
+                line = line.strip('\n');
+                line = line.split('=');
+                # print(line)
+                # print(line[-1])
+                try:
+                    line[-1] = float(line[-1]);
+                except:
+                    # print(line[-1])
+                    line[-1] = -1;
+                tmpline.append(float(line[-1]));
+            # print(np.shape(tmplines))
+            tmplines[id, :] = np.array(tmpline);
+        # print("***********************************************")
+        # for item in tmplines:
+        # print(item)
+        data[i] = tmplines
+        # print(len(data[i]))
+
+    name = list(data.keys());
+    name.sort();
+
+    somaBlockCsv = open(distanceFolder + "\\..\\somaBlock.csv");
+    lines = somaBlockCsv.readlines();
+    # print(lines[2])
+    somaMulti=[]
+    for i in range(1,len(lines)):
+        # print(lines[i])
+        lines[i]=lines[i].strip('\n');
+        lines[i]=lines[i].split(',');
+        somaMulti.append(int(lines[i][0]))
+    somaBlockCsv.close()
+
+    for i in name:
+        # print(distanceFolder+i+".csv")
+        outfile = open(distanceFolder + "\\..\\" + i + "multi.csv", 'w');
+        # print("{},{},{},{},{},{},{}".format("manual_To_"+i.split('s')[-1],i.split('s')[-1]+"_To_manual","average of bi-directional entire-structure-averages","differen-structure-average ",4,5,6))
+        outfile.write("{},{},{},{},{},{},{}\n".
+                      format("id", "manual_To_" + i.split('s')[-1], i.split('s')[-1] + "_To_manual",
+                             "average of bi-directional entire-structure-averages", "differen-structure-average ", 4,
+                             5))
+
+
+        for j in data[i]:
+            # print(j)
+
+            if j[0] < 0  or j[0] not in somaMulti:
+                continue
+            outfile.write("{},{},{},{},{},{},{},{}\n".
+                          format(j[0], j[1], j[2], j[3], j[4], j[5], j[6], j[7]))
 
 def main():
 
     #manual
     teraflyFolder = "E:\mouse18454_teraconvert\RES(26298x35000x11041)"
     # apoPath = "D:\soamdata\\18454\\test.apo"
-    apoPath="D:\soamdata\\18454\\soma_list.ano.apo"
-    v3drawFolder = "D:\soamdata\\18454\\v3draw"
+    apoPath="D:\soamdata\\17302\\17302.apo"
+
+    v3drawFolder = "D:\soamdata\\17302\\v3draw"
     srcManualSwcFolder = v3drawFolder + "\\..\\manualRawSwc"
 
     #auto
@@ -452,6 +520,7 @@ def main():
     tarManualSwcFolder_prun=v3drawFolder+"\\..\\manualPrunedSwc"
     distanceFolder=v3drawFolder+"\\..\\distance";
 
+
     #step1 prepare v3draw && split to folders
     # crop3D(teraflyFolder,apoPath,v3drawFolder)
     # rename3D(apoPath,v3drawFolder)
@@ -459,8 +528,8 @@ def main():
     # splitTofolders(v3drawFolder, splitFolderApp3_1)
 
     #step2 prepare markers
-    # createMarker(apoPath,splitFolderApp2,isMul=0)
-    # createMarker(apoPath,splitFolderApp3_1,isMul=1)
+    createMarker(apoPath,splitFolderApp2,isMul=0)
+    createMarker(apoPath,splitFolderApp3_1,isMul=1)
 
     #step3 run app2,app3.1
     # runAutoTrace(splitFolderApp2,app2)
@@ -471,14 +540,16 @@ def main():
     # prunSwcFolder(tarManualSwcFolder,tarManualSwcFolder_prun)
 
     #step5 run distance
-    disBetSwcFolder(tarManualSwcFolder_prun,splitFolderApp2,distanceFolder)
-    disBetSwcFolder(tarManualSwcFolder_prun,splitFolderApp3_1,distanceFolder)
+    # disBetSwcFolder(tarManualSwcFolder_prun,splitFolderApp2,distanceFolder)
+    # disBetSwcFolder(tarManualSwcFolder_prun,splitFolderApp3_1,distanceFolder)
 
     #output excel
     outputExcel(distanceFolder)
 
     #merge excel
-    mergeExcel(v3drawFolder+"\\..\\somaBlock.csv",[v3drawFolder+"\\..\\manualPrunedSwc(To)splitToApp2.csv",v3drawFolder+"\\..\\manualPrunedSwc(To)splitToApp3.1.csv"])
+    mergeExcel(v3drawFolder+"\\..\\somaBlock.csv",[v3drawFolder+"\\..\\17302_Whole_Cut_Prun(To)splitTofolders2.1.csv",v3drawFolder+"\\..\\17302_Whole_Cut_Prun(To)splitTofolders3.1.csv"])
+
+    outputMultiExcel(distanceFolder)
 
 if __name__=="__main__":
     # tmpfile = open('D:\soamdata\\18454\\out.txt', 'w+')
@@ -486,13 +557,13 @@ if __name__=="__main__":
     # print('This message is for file!')
 
     startTime = time.asctime(time.localtime(time.time()))
-    # main();
+    main();
     endTime=time.asctime( time.localtime(time.time()))
-    print("startTime:{}".format(startTime))
-    print("endTime:{}".format(endTime))
+    # print("startTime:{}".format(startTime))
+    # print("endTime:{}".format(endTime))
 
     # app2("D:\soamdata\\18454\splitToApp2\ID(177)_16677.947_13351.408_5308.884")
     # os.system("explore.exe")
-    disBetSwc("D:\soamdata\\18454\manualPrunedSwc\\18454_00164_YJ_SYY_stamp_2019_01_04_11_33.ano.eswc",
-              "D:\soamdata\\18454\splitToApp3.1\ID(164)_24079.059_12004.414_5841.724\\ID(164)_24079.059_12004.414_5841.724.v3draw_x254_y254_z254_app2.swc",
-              "D:\soamdata\\18454\splitToApp3.1\ID(164)_24079.059_12004.414_5841.724\\distance.txt")
+    # disBetSwc("D:\soamdata\\18454\manualPrunedSwc\\18454_00164_YJ_SYY_stamp_2019_01_04_11_33.ano.eswc",
+    #           "D:\soamdata\\18454\splitToApp3.1\ID(164)_24079.059_12004.414_5841.724\\ID(164)_24079.059_12004.414_5841.724.v3draw_x254_y254_z254_app2.swc",
+    #           "D:\soamdata\\18454\splitToApp3.1\ID(164)_24079.059_12004.414_5841.724\\distance.txt")

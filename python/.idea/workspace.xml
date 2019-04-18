@@ -2,18 +2,20 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/V3D" />
+    <bookmark url="file://$PROJECT_DIR$/XiaCiJianCe/keli.py" line="21" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d17915d2-e43e-4b21-88bd-8a408a55b824" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../c++/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../c++/test.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../c++/test.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../c++/test.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/V3D/app2Run.py" beforeDir="false" afterPath="$PROJECT_DIR$/V3D/app2Run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/V3D/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/V3D/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/AlexNet_Keras2.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/AlexNet_Keras2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/searchFileBeyond100M.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/searchFileBeyond100M.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tfGoogle/chapter6/Inception/2015train.py" beforeDir="false" afterPath="$PROJECT_DIR$/tfGoogle/chapter6/Inception/2015train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tfGoogle/chapter9/9.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/tfGoogle/chapter9/9.1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V3D/17302_Whole_Cut_Prun(To)splitTofolders2.1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V3D/17302_Whole_Cut_Prun(To)splitTofolders2.2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V3D/17302_Whole_Cut_Prun(To)splitTofolders3.1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V3D/17302_Whole_Cut_Prun(To)splitTofolders3.2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V3D/batchTestAlgorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/V3D/batchTestAlgorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/pdfEdit.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/pdfEdit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,115 +141,74 @@
     <session id="1011301301">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.13" value="2" />
-          <entry key="project.open.time.14" value="4" />
-          <entry key="project.open.time.15" value="3" />
-          <entry key="project.open.time.16" value="3" />
-          <entry key="project.open.time.17" value="3" />
-          <entry key="project.open.time.18" value="3" />
-          <entry key="project.open.time.20" value="1" />
+          <entry key="project.closed" value="14" />
+          <entry key="project.open.time.116" value="1" />
+          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.137" value="1" />
+          <entry key="project.open.time.14" value="5" />
+          <entry key="project.open.time.15" value="4" />
+          <entry key="project.open.time.16" value="5" />
+          <entry key="project.open.time.17" value="5" />
+          <entry key="project.open.time.18" value="4" />
+          <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.open.time.93" value="1" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="checkpoint" value="3" />
+          <entry key="csv" value="12" />
+          <entry key="html" value="1" />
           <entry key="index" value="1" />
           <entry key="json" value="1" />
           <entry key="meta" value="1" />
-          <entry key="py" value="253" />
+          <entry key="png" value="1" />
+          <entry key="py" value="528" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="HTML" value="1" />
+          <entry key="Image" value="1" />
           <entry key="JSON" value="1" />
-          <entry key="PLAIN_TEXT" value="10" />
-          <entry key="Python" value="253" />
+          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="Python" value="528" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="18" />
-          <entry key="py" value="46505" />
+          <entry key="dummy" value="62" />
+          <entry key="py" value="83948" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="18" />
-          <entry key="Python" value="46505" />
+          <entry key="PLAIN_TEXT" value="62" />
+          <entry key="Python" value="83948" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/Inception/2015train.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6750">
-              <caret line="275" column="82" selection-start-line="275" selection-start-column="82" selection-end-line="275" selection-end-column="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/V3D/app2Run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataMining/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataMining/KNN.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="259" column="40" selection-start-line="259" selection-start-column="40" selection-end-line="259" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <marker date="1551513998786" expanded="true" signature="5331:8045" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/searchFileBeyond100M.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="47" column="38" lean-forward="true" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataMining/selectResult.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/V3D/batchTestHighlightAnormaly.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+            <state relative-caret-position="351">
+              <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -263,36 +224,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>test_interval</find>
-      <find>labels</find>
-      <find>labels=labels.long()</find>
-      <find>MODEL_FILE</find>
-      <find>find_coef_and_plot</find>
-      <find>save</find>
-      <find>adap_trap</find>
-      <find>cuda</find>
-      <find>optimizer</find>
-      <find>ID(23)</find>
-      <find>(int)</find>
-      <find>readlines</find>
-      <find>sort</find>
-      <find>sorted</find>
-      <find>tmp</find>
-      <find>Validation accuracy on random sampled</find>
-      <find>Train accura</find>
-      <find>print</find>
-      <find>re.</find>
-      <find>run_bottleneck_on_image</find>
-      <find>saveFolder</find>
-      <find>apoPath</find>
-      <find>resultFolder</find>
-      <find>in</find>
-      <find>somaBlock</find>
-      <find>somaBlock.csv</find>
-      <find>crop3D</find>
-      <find>tera</find>
-      <find>cropTerafly</find>
-      <find>rename</find>
+      <find>map_display</find>
+      <find>canvas.delete(&quot;all&quot;</find>
+      <find>destroy()</find>
+      <find>c</find>
+      <find>master</find>
+      <find>my_d</find>
+      <find>my_destory</find>
+      <find>Button(master=master, text='Quit', command=my_destory(canvas,button))</find>
+      <find>attribute_error</find>
+      <find>BOTH</find>
+      <find>a.colo</find>
+      <find>ax =</find>
+      <find>ax</find>
+      <find>plotlist</find>
+      <find>ax.</find>
+      <find>plt.ylim</find>
+      <find>showLegend</find>
+      <find>plottype</find>
+      <find>cmap</find>
+      <find>axes</find>
+      <find>'axes'</find>
+      <find>plottype =</find>
+      <find>plt.</find>
+      <find>co</find>
+      <find>colorba</find>
+      <find>a.</find>
+      <find>toolbar</find>
+      <find>mycanvas</find>
+      <find>canvas</find>
+      <find>mytoolbar</find>
     </findStrings>
     <replaceStrings>
       <replace>Ltemp</replace>
@@ -301,6 +262,13 @@
       <replace>find_coef_and_plot1</replace>
       <replace>line</replace>
       <replace>v3drawFolder</replace>
+      <replace>crossPair</replace>
+      <replace>neighbours</replace>
+      <replace>lat2</replace>
+      <replace>stationList</replace>
+      <replace>min</replace>
+      <replace>textDict</replace>
+      <replace>ax.</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -309,65 +277,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Proj3_testscripts/p6_engin_eqn.py" />
-        <option value="$PROJECT_DIR$/pytorch-video-recognition-master/mypath.py" />
-        <option value="$PROJECT_DIR$/pytorch-video-recognition-master/gpu_mem_track.py" />
-        <option value="$PROJECT_DIR$/pytorch-video-recognition-master/dataloaders/dataset.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter6/Inception/train.py" />
-        <option value="$PROJECT_DIR$/project/downloadZip.py" />
-        <option value="$PROJECT_DIR$/ODE/LeastSquares.py" />
-        <option value="$PROJECT_DIR$/ODE/Final2017_testscripts/p1_plot.py" />
-        <option value="$PROJECT_DIR$/ODE/Final2017_testscripts/p2_series.py" />
-        <option value="$PROJECT_DIR$/ODE/Final17_Answers/Final_Answers/p3_quad_ode.py" />
-        <option value="$PROJECT_DIR$/project/newtonMethod.py" />
-        <option value="$PROJECT_DIR$/ODE/my_Proj3_testscripts/my_Proj3_testscripts/p2_FD_plot.py" />
-        <option value="$PROJECT_DIR$/Final18F_scripts/DerIntRoot.py" />
-        <option value="$PROJECT_DIR$/Final18F_scripts/LS_population.py" />
-        <option value="$PROJECT_DIR$/pytorch-video-recognition-master/train.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter7/7.2.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter7/7.3.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter7/7.3.1.2.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter7/7.3.1.3.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter7/7.3.2.1.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter7/7.3.2.2.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter8/8.1.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter8/8.2.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter6/LeNet5/leNet5_train.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter8/8.4.py" />
-        <option value="$PROJECT_DIR$/project/pdfEdit.py" />
-        <option value="$PROJECT_DIR$/project/importanceSample.py" />
-        <option value="$PROJECT_DIR$/Frangi-filter-based-Hessian-master/FrangiFilter2D.py" />
-        <option value="$PROJECT_DIR$/project/prunThinBranch.py" />
-        <option value="$PROJECT_DIR$/project/app2Run.py" />
-        <option value="$PROJECT_DIR$/project/morphologySkeletonize.py" />
+        <option value="$PROJECT_DIR$/5machine_learning/svm.py" />
+        <option value="$PROJECT_DIR$/lstm/wendu.py" />
+        <option value="$PROJECT_DIR$/lstm/wendu3.py" />
+        <option value="$PROJECT_DIR$/lstm/wendu2.py" />
+        <option value="$PROJECT_DIR$/lstm/wendu5.py" />
+        <option value="$PROJECT_DIR$/lstm/wendu4.py" />
+        <option value="$PROJECT_DIR$/lstm/wendu6.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/CNN/binary/cnn1.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/SimpleRNN/binary/rnn1.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/CNN/binary/cnn1test.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/SimpleRNN/binary/rnn1test.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/cnn/cnn1test.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/cnn/cnn1.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/rnn/rnn1test.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/rnn/rnn1.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/rnn/rnn.py" />
+        <option value="$PROJECT_DIR$/project/line.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/knn/knn.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/cnn/cnntest.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/rnn/rnntest.py" />
+        <option value="$USER_HOME$/Desktop/Network-Intrusion-Detection-master/UNSW-NB15/my/myplot.py" />
+        <option value="$PROJECT_DIR$/project/confusion_matrix.py" />
+        <option value="$PROJECT_DIR$/foliumProj/swerve_speed.py" />
+        <option value="$PROJECT_DIR$/V3D/shift_merge_swc.py" />
+        <option value="$PROJECT_DIR$/money/dbscan.py" />
+        <option value="$PROJECT_DIR$/money/kmeans.py" />
+        <option value="$PROJECT_DIR$/money/gis_kmeans.py" />
+        <option value="D:/wp/微信文件夹/WeChat Files/WPKENAN/FileStorage/File/2019-04/daxuechengtxt/gis_kmeans.py" />
+        <option value="D:/wp/微信文件夹/WeChat Files/WPKENAN/FileStorage/File/2019-04/daxuechengtxt/code/gis_kmeans.py" />
+        <option value="$PROJECT_DIR$/money/unet.py" />
         <option value="$PROJECT_DIR$/project/test.py" />
-        <option value="$PROJECT_DIR$/V3D/plotDistanceHanchuan.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter6/Inception/2016train.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter6/Inception/dealFile.py" />
-        <option value="$PROJECT_DIR$/V3D/crop3DImage.py" />
-        <option value="D:/vaa3d_tools/hackathon/wpkenan/createProBaseFile.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter9/9.1.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter9/9.2.py" />
-        <option value="$PROJECT_DIR$/project/AlexNet_Keras2.py" />
-        <option value="$PROJECT_DIR$/V3D/batchTestApp3.py" />
-        <option value="$PROJECT_DIR$/V3D/batchTestAlgorithm.py" />
-        <option value="$PROJECT_DIR$/V3D/app2Run.py" />
-        <option value="$PROJECT_DIR$/V3D/test.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter6/2015test.py" />
-        <option value="$PROJECT_DIR$/tfGoogle/chapter6/Inception/2015train.py" />
-        <option value="$PROJECT_DIR$/V3D/batchTestHighlightAnormaly.py" />
-        <option value="$PROJECT_DIR$/dataMining/test.py" />
-        <option value="$PROJECT_DIR$/dataMining/selectResult.py" />
-        <option value="$PROJECT_DIR$/dataMining/KNN.py" />
-        <option value="$PROJECT_DIR$/project/searchFileBeyond100M.py" />
+        <option value="$PROJECT_DIR$/XiaCiJianCe/keli.py" />
+        <option value="$PROJECT_DIR$/Unet2d-master/GlandCeil_Unet/glandceilunet2dtest.py" />
+        <option value="$PROJECT_DIR$/Unet2d-master/GlandCeil_Unet/unet2d/__init__.py" />
+        <option value="$PROJECT_DIR$/Unet2d-master/GlandCeil_Unet/unet2d/model_GlandCeil.py" />
+        <option value="$PROJECT_DIR$/GlandCeil_Unet/unet2d/model_GlandCeil.py" />
+        <option value="$PROJECT_DIR$/GlandCeil_Unet/glandceilunet2dtest.py" />
+        <option value="$PROJECT_DIR$/foliumProj/test.py" />
+        <option value="$PROJECT_DIR$/project/皮肉.py" />
+        <option value="$PROJECT_DIR$/project/pro1.py" />
+        <option value="$PROJECT_DIR$/project/pro2.py" />
+        <option value="$PROJECT_DIR$/project/pro3.py" />
+        <option value="$USER_HOME$/test.py" />
+        <option value="$USER_HOME$/Desktop/Teqc/teqcplot.py" />
+        <option value="$USER_HOME$/Desktop/Teqc/first.py" />
+        <option value="$PROJECT_DIR$/tk/first.py" />
+        <option value="$PROJECT_DIR$/tk/test1.py" />
+        <option value="$PROJECT_DIR$/tk/test2.py" />
+        <option value="$PROJECT_DIR$/tk/test4.py" />
+        <option value="$PROJECT_DIR$/tk/test3.py" />
+        <option value="$USER_HOME$/Desktop/Teqc/teqcEasyGUI.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="818" />
-    <option name="y" value="512" />
+    <option name="x" value="538" />
+    <option name="y" value="103" />
     <option name="width" value="878" />
-    <option name="height" value="867" />
+    <option name="height" value="837" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -391,6 +359,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -405,32 +374,45 @@
             </path>
             <path>
               <item name="python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python" type="462c0819:PsiDirectoryNode" />
+              <item name="tk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Data/ODE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="test" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="test" />
+      </console-settings>
+    </option>
+  </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\github\usualProject\python\tfGoogle\chapter9" />
-      <recent name="D:\github\usualProject\python\tfGoogle\chapter6\Inception" />
-      <recent name="D:\github\usualProject\python\pytorch-video-recognition-master\run" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\github\usualProject\python\foliumProj" />
       <recent name="D:\github\usualProject\python\tfGoogle\chapter6\Inception\inception_dec_2015" />
       <recent name="D:\github\usualProject\python\V3D" />
       <recent name="D:\github\usualProject\python\pytorch-video-recognition-master" />
       <recent name="C:\Users\Anzhi\PycharmProjects\test\" />
-      <recent name="C:\Users\Anzhi\PycharmProjects\test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github\usualProject\python\V3D" />
+      <recent name="D:\github\usualProject\python\tfGoogle\chapter9" />
+      <recent name="D:\github\usualProject\python\tfGoogle\chapter6\Inception" />
+      <recent name="D:\github\usualProject\python\pytorch-video-recognition-master\run" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -446,69 +428,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.searchFileBeyond100M">
-    <configuration name="2015train" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tfGoogle/chapter6/Inception" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tfGoogle/chapter6/Inception/2015train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="KNN" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dataMining" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataMining/KNN.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="batchTestHighlightAnormaly" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/V3D" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/V3D/batchTestHighlightAnormaly.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="searchFileBeyond100M" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -530,7 +449,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -538,11 +457,95 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dataMining" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tk" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataMining/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tk/test1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tk/test2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tk/test3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tk/test4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wendu6" type="PythonConfigurationType" factoryName="Python">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lstm" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lstm/wendu6.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -552,19 +555,20 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.2015train" />
-      <item itemvalue="Python.batchTestHighlightAnormaly" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.KNN" />
+      <item itemvalue="Python.wendu6" />
+      <item itemvalue="Python.test1" />
+      <item itemvalue="Python.test2" />
+      <item itemvalue="Python.test3" />
+      <item itemvalue="Python.test4" />
       <item itemvalue="Python.searchFileBeyond100M" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.searchFileBeyond100M" />
-        <item itemvalue="Python.KNN" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.batchTestHighlightAnormaly" />
-        <item itemvalue="Python.2015train" />
+        <item itemvalue="Python.test3" />
+        <item itemvalue="Python.test4" />
+        <item itemvalue="Python.test2" />
+        <item itemvalue="Python.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -591,21 +595,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="4" width="1456" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1264489" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2729196" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.22023182" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.45261985" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.34309623" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39910814" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32887402" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3567447" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26867336" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50052685" side_tool="true" weight="0.3690078" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32887402" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -613,18 +616,18 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.013171759" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11854584" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.22023182" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.33667782" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.18952063" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39910814" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32887402" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3567447" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.26867336" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50052685" side_tool="true" weight="0.3690078" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32887402" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -647,327 +650,363 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pytorch-video-recognition-master/train.py">
+    <entry file="file://$PROJECT_DIR$/V3D/SomaDetection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="250">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ODE/Final17_Answers/Final_Answers/p3_quad_ode.py">
+    <entry file="file://$PROJECT_DIR$/V3D/shift_merge_swc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="19" />
+        <state relative-caret-position="211">
+          <caret line="32" column="39" lean-forward="true" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://E:/18.txt" />
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter7/7.2.py">
+    <entry file="file://$PROJECT_DIR$/money/result.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://D:/wp/微信文件夹/WeChat Files/WPKENAN/FileStorage/File/2019-04/daxuechengtxt/gis_kmeans.py" />
+    <entry file="file://D:/wp/微信文件夹/WeChat Files/WPKENAN/FileStorage/File/2019-04/daxuechengtxt/code/gis_kmeans.py" />
+    <entry file="file://$PROJECT_DIR$/money/gis_kmeans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/money/kmeans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/money/dbscan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="85" column="37" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HUAWEI/Node2Node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unet2d-master/GlandCeil_Unet/glandceilunet2dtest.py" />
+    <entry file="file://$PROJECT_DIR$/Unet2d-master/GlandCeil_Unet/unet2d/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Unet2d-master/GlandCeil_Unet/unet2d/model_GlandCeil.py" />
+    <entry file="file://$PROJECT_DIR$/Unet2d-master/GlandCeil_Unet/unet2d/layer.py" />
+    <entry file="file://$PROJECT_DIR$/XiaCiJianCe/keli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.jupyter/jupyter_notebook_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="680" column="19" selection-start-line="680" selection-start-column="19" selection-end-line="680" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/money/unet.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python35/site-packages/tensorflow/python/training/coordinator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3075">
-          <caret line="129" column="6" selection-start-line="129" selection-start-column="6" selection-end-line="129" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter7/7.3.1.3.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter7/7.3.1.2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter7/7.3.2.2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter7/7.3.2.1.py">
+    <entry file="file://$PROJECT_DIR$/GlandCeil_Unet/GlandsMask.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter7/7.3.1.1.py">
+    <entry file="file://$PROJECT_DIR$/GlandCeil_Unet/GlandsImage.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        <state relative-caret-position="275">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/LeNet5/leNet5_train.py">
+    <entry file="file://$PROJECT_DIR$/GlandCeil_Unet/glandceilunet2dtest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="64" column="105" selection-start-line="64" selection-start-column="105" selection-end-line="64" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/Inception/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter8/8.1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter8/8.2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter8/8.4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2125">
-          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/pdfEdit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frangi-filter-based-Hessian-master/FrangiFilter2D.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/importanceSample.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/1166459142/cv2/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="10079" column="4" selection-start-line="10079" selection-start-column="4" selection-end-line="10079" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/prunThinBranch.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/meanshift.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/statistics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/morphologySkeletonize.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
+        <state relative-caret-position="814">
           <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/anaconda/envs/py35/Lib/random.py">
+    <entry file="file://$PROJECT_DIR$/GlandCeil_Unet/unet2d/model_GlandCeil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="194" selection-start-line="194" selection-end-line="194" />
+        <state relative-caret-position="439">
+          <caret line="339" lean-forward="true" selection-start-line="339" selection-end-line="339" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/Inception/log1.txt">
+    <entry file="file://$PROJECT_DIR$/GlandCeil_Unet/unet2d/layer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="64" lean-forward="true" selection-start-column="64" selection-end-column="64" />
+        <state relative-caret-position="425">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/Inception/log2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/solveEquation.py">
+    <entry file="file://$PROJECT_DIR$/foliumProj/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+        <state relative-caret-position="1854">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/test.py">
+    <entry file="file://$PROJECT_DIR$/foliumProj/20190327.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+        <state relative-caret-position="241">
+          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/dict.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/vaa3d_tools/hackathon/wpkenan/createProBaseFile.py">
+    <entry file="file://$PROJECT_DIR$/project/pro1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="182" column="65" selection-start-line="182" selection-start-column="65" selection-end-line="182" selection-end-column="65" />
+        <state relative-caret-position="300">
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+          <folding>
+            <marker date="1555501243770" expanded="true" signature="438:631" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python35/site-packages/tensorflow/python/framework/constant_op.py">
+    <entry file="file://$PROJECT_DIR$/project/pro2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+        <state relative-caret-position="305">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <marker date="1555503379712" expanded="true" signature="281:413" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter9/9.1.py">
+    <entry file="file://$PROJECT_DIR$/project/pro3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="214">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <marker date="1555504374902" expanded="true" signature="25:182" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter9/9.2.py">
+    <entry file="file://$USER_HOME$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="134">
+          <caret line="126" column="61" selection-start-line="126" selection-start-column="61" selection-end-line="126" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/SomaDetection.py">
+    <entry file="file://D:/anaconda/envs/py37/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="230">
+          <caret line="1280" column="8" selection-start-line="1280" selection-start-column="8" selection-end-line="1280" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/crop3DImage.py">
+    <entry file="file://$USER_HOME$/Documents/Tencent Files/3272346474/FileRecv/Teqc-EasyGUI-master/teqcplot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3650">
-          <caret line="150" column="18" selection-start-line="150" selection-start-column="16" selection-end-line="150" selection-end-column="18" />
+        <state relative-caret-position="375">
+          <caret line="15" column="68" lean-forward="true" selection-end-line="969" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/batchTestAlgorithm.py">
+    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/matplotlib/backends/_backend_tk.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state relative-caret-position="303">
+          <caret line="606" column="26" selection-start-line="606" selection-start-column="8" selection-end-line="606" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/Inception/dealFile.py">
+    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/matplotlib/backend_bases.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        <state relative-caret-position="-1422">
+          <caret line="2521" column="6" selection-start-line="2521" selection-start-column="6" selection-end-line="2521" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/zyb.txt" />
-    <entry file="file://$PROJECT_DIR$/project/AlexNet_Keras2.py">
+    <entry file="file://$USER_HOME$/Documents/Tencent Files/3272346474/FileRecv/Teqc-EasyGUI-master/teqcEasyGUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="91" column="38" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
+        <state relative-caret-position="380">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="290" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#530#12693#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/plotDistanceHanchuan.py">
+    <entry file="file://$USER_HOME$/Desktop/Teqc/first.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/anaconda/envs/py35/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="2349" column="23" selection-start-line="2349" selection-start-column="23" selection-end-line="2349" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/mpl_toolkits/mplot3d/axes3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1540" column="53" selection-start-line="1540" selection-start-column="53" selection-end-line="1540" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/matplotlib/artist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="442" column="16" lean-forward="true" selection-start-line="442" selection-start-column="16" selection-end-line="442" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/1166459142/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="516" lean-forward="true" selection-start-line="516" selection-end-line="516" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/matplotlib/backends/backend_tkagg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Teqc/teqcplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="959" column="69" lean-forward="true" selection-start-line="959" selection-start-column="69" selection-end-line="959" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tk/test2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/anaconda/envs/py35/Lib/tkinter/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tk/test3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="249" column="86" selection-start-line="249" selection-start-column="86" selection-end-line="249" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/2015test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/pandas/util/_decorators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="292" column="8" selection-start-line="292" selection-start-column="8" selection-end-line="292" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/pandas/io/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="685" column="19" selection-start-line="685" selection-start-column="11" selection-end-line="685" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tfGoogle/chapter6/Inception/2015train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6750">
-          <caret line="275" column="82" selection-start-line="275" selection-start-column="82" selection-end-line="275" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/batchTestHighlightAnormaly.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/V3D/app2Run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <caret line="13" column="54" lean-forward="true" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataMining/test.py">
+    <entry file="file://$PROJECT_DIR$/tk/test4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="251">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataMining/selectResult.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataMining/KNN.py">
+    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/matplotlib/figure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="259" column="40" selection-start-line="259" selection-start-column="40" selection-end-line="259" selection-end-column="40" />
+        <state relative-caret-position="-242">
+          <caret line="2104" column="8" selection-start-line="2104" selection-start-column="8" selection-end-line="2104" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/anaconda/envs/py35/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="2088" column="4" selection-start-line="2088" selection-start-column="4" selection-end-line="2088" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tk/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="41" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1551513998786" expanded="true" signature="5331:8045" ph="..." />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tk/first.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Teqc/teqcEasyGUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="846" lean-forward="true" selection-start-line="846" selection-end-line="846" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#1550#1567#0" />
+            <element signature="e#2476#3269#0" />
+            <element signature="e#3280#11268#0" />
+            <element signature="e#11300#19831#0" />
+            <element signature="e#43717#44188#0" />
+            <element signature="e#28420#28510#0" />
+            <marker date="1555570557754" expanded="true" signature="11696:11698" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V3D/markerScale.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="15" selection-start-line="14" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/searchFileBeyond100M.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="47" column="38" lean-forward="true" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+        <state relative-caret-position="351">
+          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

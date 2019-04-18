@@ -1,0 +1,125 @@
+;/*++
+;
+;Copyright (c) Microsoft Corporation.  All rights reserved.
+;
+;   THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+;   KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;   IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+;   PURPOSE.
+;
+;Module Name:
+;
+;    USB5935.INF
+;
+;Abstract:
+;    INF file for a generic USB device.
+;
+;--*/
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171}
+Provider=%MSFT%
+DriverVer=07/03/2015,
+CatalogFile=USB5935.cat
+CatalogFile.NTx86=USB5935X86.cat
+CatalogFile.NTIA64=USB5935I64.cat
+CatalogFile.NTAMD64=USB5935X64.cat
+
+[DestinationDirs]
+DefaultDestDir = 12
+USB5935.Files.Driver=10,System32\Drivers
+USB5935.Files.Dll=10,System32
+USB5935.Files.Inf=10,inf
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg     
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+HKR,,DeviceCharacteristics,0x10001,0x100     ;Use same security checks on relative opens
+HKR,,Security,,"D:P(A;;GA;;;SY)(A;;GA;;;BA)" ;Allow generic all access to system and built-in Admin. 
+
+
+; ================= Device Install section =====================
+
+[ControlFlags]
+ExcludeFromSelect=USB\VID_04B4&PID_5935
+
+
+[Manufacturer]
+%MSFT%=MSFT,NTx86, NTia64, NTamd64
+
+; For Win2K
+[MSFT]
+; DisplayName            Section           DeviceId
+; -----------       	 -------           --------
+%USB5935.DRVDESC%=USB5935_Inst, USB\VID_04B4&PID_5935
+
+; For XP and later
+[MSFT.NTx86]
+; DisplayName            Section           DeviceId
+; -----------       	 -------           --------
+%USB5935.DRVDESC%=USB5935_Inst, USB\VID_04B4&PID_5935
+[MSFT.NTia64]
+; DisplayName            Section           DeviceId
+; -----------       	 -------           --------
+%USB5935.DRVDESC%=USB5935_Inst, USB\VID_04B4&PID_5935
+
+[MSFT.NTamd64]
+; DisplayName            Section           DeviceId
+; -----------       	 -------           --------
+%USB5935.DRVDESC%=USB5935_Inst, USB\VID_04B4&PID_5935
+
+
+[USB5935_Inst.NT]
+CopyFiles=USB5935.Files.Driver,USB5935.Files.Dll
+AddReg=USB5935.AddReg
+
+[USB5935.Files.Driver]
+USB5935.sys
+
+[USB5935.Files.Dll]
+USB5935_32.dll
+USB5935_64.dll
+
+[SourceDisksFiles]
+USB5935.sys=1,,
+USB5935_32.dll=1,,
+USB5935_64.dll=1,,
+USB5935.inf=1,,
+
+[SourceDisksFiles.NTamd64]
+USB5935.sys=1,,
+
+[SourceDisksNames.x86]
+1 = %DISK_NAME%,,,\i386
+
+[SourceDisksNames.ia64]
+1 = %DISK_NAME%,,,\ia64
+
+[SourceDisksNames.amd64]
+1 = %DISK_NAME%,,,\amd64
+
+
+[USB5935_Inst.NT.Services]
+AddService=USB5935,0x00000002,USB5935_Service 
+
+[USB5935_Service]
+DisplayName    = %USB5935.SVCDESC%                            
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\USB5935.sys                            
+
+[Strings]
+MSFT = "ART"
+ClassName = "Art Device"
+USB5935.SVCDESC = "Art USB5935 12Bit 16CH AD & 1CH  CNT & 6CH DI DO Card"
+USB5935.DRVDESC = "Art USB5935 12Bit 16CH AD & 1CH  CNT & 6CH DI DO Card"
+DISK_NAME = "ART USB5935"
+
