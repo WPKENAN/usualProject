@@ -33,7 +33,7 @@ def main():
     for file in os.listdir(swcFolder2):
         if file[-3:]=='swc':
             print(swcFolder2+"\\"+file)
-            shiftSwc(swcFolder2+"\\"+file,outFolder+"\\"+(swcFolder2+"\\"+file).split("\\")[-1]+"_shift.swc",1000,0,0,999999)
+            shiftSwc(swcFolder2+"\\"+file,outFolder+"\\"+(swcFolder2+"\\"+file).split("\\")[-1]+"_shift.swc",1000,0,0,99999)
             # break
 
     for file in os.listdir(swcFolder1):

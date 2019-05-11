@@ -3,7 +3,6 @@ import fnmatch
 import glob
 import os
 
-
 def recursiveSearchFiles(dirPath, partFileInfo):
     fileList = []
     # print(os.path.join('\\', dirPath, '*'))
@@ -44,7 +43,7 @@ def gci(filepath,allFile):
 if __name__=='__main__':
     allFile=[]
     # test()
-    gci("D:\\github\\usualProject",allFile);
+    gci("D:\\github\\doc",allFile);
     # gci("D:\\github\\doc", allFile);
     print("文件总数:%d"%(len(allFile)));
     # paths = recursiveSearchFiles("D:\github\Data", "*.*")  # windows path

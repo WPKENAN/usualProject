@@ -1,300 +1,218 @@
 import os
-import sys
 import shutil
+import sys
 import numpy as np
-import time
-#
-# def mkdir(folder):
-#     commandStr="mkdir {}".format(folder);
-#     os.system(commandStr);
+import re
 
-def _20181223_():
-    path="D:\soamdata\\17302\\v3draw";
-    for root,dirs,files in os.walk(path):
-        # print(files)
-        for file in files:
-            pass
-            subfile=root+"\\..\\"+file.strip('.v3draw');
-            # print(subfile)
-            if not os.path.exists(subfile):
-                print("mkdir "+subfile)
-                os.mkdir(subfile)
-                print("copy {} to {}".format(root+"\\"+file,subfile+"\\"+file))
-                shutil.copy(root+"\\"+file,subfile+"\\"+file)
-
-
-def _20181224_():
-    commandStr="D:/v3d_external/bin/vaa3d_msvc.exe /x D:\\vaa3d_tools\\bin\plugins\wpkenanPlugin\somaDetection\somaDetection.dll " \
-               "/f somadetect /i D:\soamdata\somaDetection\\16232.000_15508.000_3058.000.v3draw /p -1 /o D:\soamdata\somaDetection\\output.v3draw "
-
-    os.system(commandStr)
-
-def _20181228_():
-    file=open("D:\soamdata\somaDetection\\raw.txt");
-    contents=file.read()
-    contents=contents.strip(' \n');
-    contents=contents.split(' ')
-    # print(contents[134217728])
-    print(len(contents))
-    # print(contents[:10])
-    for i in range(len(contents)):
-        contents[i]=int(contents[i]);
-    # contents.append(0);
-    contents=np.array(contents);
-    matrix=np.zeros((512,512,512));
-    print("Line: ",sys._getframe().f_lineno)
-    for i in range(512):
-        for j in range(512):
-            for k in range(512):
-                matrix[i][j][k]=contents[(i*512*512+j*512+k)]
-
-    print("over")
-
-def _20190102_():
-    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x D:\\vaa3d_tools\\bin\plugins\wpkenanPlugin\swcDistance\swcDistance.dll " \
-                 "/f function " \
-                 "/i " \
-                 "D:\soamdata\\17302\\test\ID(1)_16232.000_15508.000_3058.000\\16232.000_15508.000_3058.000.v3draw_x8_y448_z320_app2.swc " \
-                 "D:\soamdata\\17302\\test\ID(1)_16232.000_15508.000_3058.000\\16232.000_15508.000_3058.000.v3draw_x222_y354_z144_app2.swc " \
-                 "/p -1 " \
-                 "/o D:\soamdata\somaDetection\\output.v3draw "
-    os.system(commandStr)
-
-
-def _20190103_():
-    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe " \
-                 "/x D:\\vaa3d_tools\\bin\\plugins\\wpkenanPlugin\\Vaa3D_Neuron3\\vn3.dll " \
-                 "/f app3 " \
-                 "/i D:\\soamdata\\zhouzhi\\x_10580_y_19004_z_1769.v3draw " \
-                 "/p D:\\soamdata\\zhouzhi\\x_10580_y_19004_z_1769.v3draw_vn3.marker 0 -1"
-
-    os.system(commandStr)
-
-def _20190107_():
-    savedStdout = sys.stdout  # 保存标准输出流
-    file=open('D:\soamdata\\18454\\out.txt', 'w+')
-    sys.stdout = file  # 标准输出重定向至文件
-    print('This message is for file!')
-    # sys.stdout = savedStdout
-
-def _20190107_2(apoPath,splitFolder,isMul=1):
-    file = open(apoPath);
-    lines = file.readlines();
-    markers = [];
-    mulmarker = [];
-    for line in lines:
-        z, x, y = line.split(',')[4:7]
-        # print(x,y,z)
-        if line[0] == "#":
-            continue;
-        id = int(float(line.split(',')[2]))
-        z = float(z);
-        y = float(y);
-        x = float(x);
-        markers.append([x, y, z, id])
-    for marker in markers:
-        count = 0;
-        nearIds = [];
-        for tmpMarker in markers:
-            if max(abs(tmpMarker[0] - marker[0]), abs(tmpMarker[1] - marker[1]), abs(tmpMarker[2] - marker[2])) == 0:
-                count = count + 1;
-                nearIds.append(tmpMarker[3])
-                break;
-        for tmpMarker in markers:
-            # print(max(abs(tmpMarker[0]-256),abs(tmpMarker[1]-256),abs(tmpMarker[2]-256)))
-            if max(abs(tmpMarker[0] - marker[0]), abs(tmpMarker[1] - marker[1]),
-                   abs(tmpMarker[2] - marker[2])) < 310 and max(abs(tmpMarker[0] - marker[0]),
-                                                                abs(tmpMarker[1] - marker[1]),
-                                                                abs(tmpMarker[2] - marker[2])) != 0:
-                count = count + 1;
-                nearIds.append(tmpMarker[3])
-        if count > 0:
-            mulmarker.append([marker, count, nearIds]);
-
-    mulmarker = sorted(mulmarker, key=lambda x: x[0][3], reverse=False)
-    print("there are {} mulMarkers".format(len(mulmarker)))
-    for item in mulmarker:
-        print(item)
-
-def _20190107_3(teraflyFolder, apoPath, v3drawFolder):
-    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x D:\\vaa3d_tools\\bin\plugins\\image_geometry\\crop3d_image_series\\cropped3DImageSeries.dll /f cropTerafly " \
-                 "/i  {} {}  {} /p 600 600 600".format(teraflyFolder, apoPath, v3drawFolder)
-    os.system(commandStr)
-
-def _20190107_4():
-
-    # manual
-    teraflyFolder = "E:\mouse18454_teraconvert\RES(26298x35000x11041)"
-    apoPath = "D:\soamdata\\18454\\test.apo"
-    # apoPath = "D:\soamdata\\18454\\soma_list.ano.apo"
-    v3drawFolder = "D:\soamdata\\18454\\v3draw"
-    srcManualSwcFolder = v3drawFolder + "\\..\\manualRawSwc"
-
-    # auto
-    splitFolderApp2 = v3drawFolder + "\\..\\splitToApp2"
-    splitFolderApp3_1 = v3drawFolder + "\\..\\splitToApp3.1"
-    tarManualSwcFolder = v3drawFolder + "\\..\\manualCutSwc"
-    tarManualSwcFolder_prun = v3drawFolder + "\\..\\manualPrunedSwc"
-    distanceFolder = v3drawFolder + "\\..\\distance";
-    # _20190107_2(apoPath,splitFolderApp2,0)
-    _20190107_3(teraflyFolder,apoPath,v3drawFolder)
-
-def _20190108_():
-    path="C:\\Users\Anzhi\\Desktop\\data.txt"
-    file=open(path)
-    lines=file.readlines();
-    tmp=[]
+def shiftSwc(inpath,outpath,dx,dy,dz,dindex):
+    lines=open(inpath).readlines();
+    output=open(outpath,'w');
     for i in range(len(lines)):
+        if lines[i][0]=='#':
+            output.write(lines[i])
+            continue
         lines[i]=lines[i].strip('\n');
-        lines[i]=lines[i].split(',');
-        tmp.append(int(lines[i][3]))
-    print(lines)
-    print(len(lines))
-    print(tmp)
-    tmp.sort(reverse=True)
-    print(tmp)
-
-    outfile=open(path+"\\..\\out.marker",'w')
-    outfile.write("##x,y,z,radius,shape,name,comment, color_r,color_g,color_b\n")
-    for i in range(len(lines)):
-        outfile.write("{},{},{},{},{},{},{},{},{},{}\n".format(lines[i][0],lines[i][1],lines[i][2],3,0,0,0,125,0,0))
-
-def _20190112_():
-    path = 'D:\\soamdata\\17302\\17302.apo'
-    file = open(path)
-    contents = file.readlines();
-    outfile = open(path + "\\..\\level6.apo", 'w');
-    for line in contents:
-
-        line = line.strip('\n');
-        line = line.split(',');
-        if '#' not in line[0]:
-            line[4] = float(line[4]) / 2
-            line[5] = float(line[5]) / 2
-            line[6] = float(line[6]) / 2
-
-        for i in range(len(line) - 1):
-            if i == 4:
-                outfile.write(" ")
-            outfile.write("{},".format(line[i]));
-        outfile.write("{}\n".format(line[len(line) - 1]))
-
-def _20190112_1(teraflyFolder, apoPath, v3drawFolder):
-    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x D:\\vaa3d_tools\\bin\plugins\\image_geometry\\crop3d_image_series\\cropped3DImageSeries.dll /f cropTerafly " \
-                 "/i  {} {}  {} /p 256 256 256".format(teraflyFolder, apoPath, v3drawFolder)
-    os.system(commandStr)
-
-def _20190112_2(apoPath, v3drawFolder):
-    apofile = open(apoPath);
-    apolines = apofile.readlines();
-    apolist = [];
-    dict = {}
-    for line in apolines:
-        z, x, y = line.split(',')[4:7]
-        id = line.split(',')[2]
-        # print(x,y,z)
-        if line[0] == "#":
-            continue;
-        id = int(id);
-        z = float(z);
-        y = float(y);
-        x = float(x);
-        apolist.append([id, x, y, z]);
-        dict["{:.1f}_{:.1f}_{:.1f}.v3draw".format(x, y, z)] = id;
-    apolist = sorted(apolist, key=lambda x: x[0])
-    print(apolist)
-    print(dict)
-    count = 0;
-    for file in os.listdir(v3drawFolder):
-        # print(file)
-        count = count + 1
-        if file in dict:
-            if os.path.exists(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file)):
-                os.remove(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
-            # print(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file));
-            os.rename(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
-
-def _20190116_3(teraflyFolder, apoPath, v3drawFolder):
-    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x D:\\vaa3d_tools\\bin\plugins\\image_geometry\\crop3d_image_series\\cropped3DImageSeries.dll /f cropTerafly " \
-                 "/i  {} {}  {} /p  976 976 196".format(teraflyFolder, apoPath, v3drawFolder)
-    os.system(commandStr)
-
-
-def _20190116_2(apoPath, v3drawFolder):
-    apofile = open(apoPath);
-    apolines = apofile.readlines();
-    apolist = [];
-    dict = {}
-    for line in apolines:
-        z, x, y = line.split(',')[4:7]
-        id = line.split(',')[2]
-        # print(x,y,z)
-        if line[0] == "#":
-            continue;
-        id = int(id);
-        z = float(z);
-        y = float(y);
-        x = float(x);
-        apolist.append([id, x, y, z]);
-        dict["{:.3f}_{:.3f}_{:.3f}.v3draw".format(x, y, z)] = id;
-    apolist = sorted(apolist, key=lambda x: x[0])
-    print(apolist)
-    print(dict)
-    count = 0;
-    for file in os.listdir(v3drawFolder):
-        # print(file)
-        count = count + 1
-        if file in dict:
-            if os.path.exists(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file)):
-                os.remove(v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
-            # print(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file));
-            os.rename(v3drawFolder + "\\" + file, v3drawFolder + "\\" + "ID({})_{}".format(dict[file], file))
-
-def _20190116_1(v3drawFile,tifFile):
-    commandStr=commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe /x mipZSlices.dll  /f mip_zslices  " \
-                 "/i  {} /p  1:1:e /o {}".format(v3drawFile, tifFile)
-    os.system(commandStr)
-
-def _20190116_0(v3drawFolder,tifFolder):
-    for i in os.listdir(v3drawFolder):
-        # print(i[:-7])
-        if i[-6:]=="v3draw":
-            print(v3drawFolder+"\\..\\"+i)
-            _20190116_1(v3drawFolder+"\\"+i,tifFolder+"\\"+i[:-7]+".tif");
-
-def _20190116_zyb():
-    file=open("C:\\Users\\Anzhi\\Desktop\\zyb.txt",'r', encoding='UTF-8');
-    lines=file.readlines();
-    for i in range(len(lines)):
-        lines[i]=lines[i].strip('\n');
-        lines[i]=lines[i].split(' ')
+        lines[i]=lines[i].split(' ');
+        output.write("{} {} {} {} {} {} {}\n".format(eval(lines[i][0])+dindex,lines[i][1],eval(lines[i][2])+dx,eval(lines[i][3])+dy,eval(lines[i][4])+dz,lines[i][5],eval(lines[i][6])+dindex))
         # print(lines[i])
-        lines[i]=lines[i][0].split('\t')
-        print(lines[i])
+    output.close()
 
-    outfile=open("C:\\Users\\Anzhi\\Desktop\\out.txt",'w',encoding='UTF-8');
-    for line in lines:
-        for item in line:
-            outfile.write(item);
-            outfile.write('\n')
+def shift_merge_Swc(swcFiles,outpath,dindex,dx,dy,dz):
+    swcs={}
+    count=0;
+    for file in swcFiles:
 
+        swcs[count]=[]
+
+        lines = open(file).readlines();
+        for i in range(len(lines)):
+            if lines[i][0] == '#':
+                continue
+            lines[i] = lines[i].strip('\n');
+            lines[i] = lines[i].split(' ');
+            swcs[count].append([eval(lines[i][0]) + dindex*count,
+                                count+1,
+                                eval(lines[i][2]) + dx*count,
+                                eval(lines[i][3]) + dy*count,
+                                eval(lines[i][4]) + dz*count,
+                                lines[i][5],
+                                eval(lines[i][6]) + dindex*count])
+        count = count + 1;
+    # print(swcs[0])
+    # print(swcs[1])
+    output=open(outpath,'w');
+    for key in swcs:
+        lines=swcs[key]
+        for i in range(len(lines)):
+            output.write("{} {} {} {} {} {} {}\n".format(lines[i][0], lines[i][1], lines[i][2],lines[i][3], lines[i][4], lines[i][5],lines[i][6]))
+
+
+def shift_merge_Swc_folder(inFolders,outFolder):
+    count=0;
+    for file in os.listdir(inFolders[1]):
+        if file[-3:] == 'swc':
+            count=count+1;
+            # if count>3:
+            #     break
+            swcFiles=[x+"\\"+file for x in inFolders];
+            if os.path.exists(swcFiles[0]) and os.path.exists(swcFiles[1]) and os.path.exists(swcFiles[2]):
+                print(swcFiles)
+                shift_merge_Swc(swcFiles,outFolder+"\\"+file,99999999,2000,0,0)
+
+
+# shift_merge
+def renameSwc1(infolder,outfolder):
+    for file in os.listdir(infolder):
+        if file[-3:] == 'swc':
+            shutil.copy(infolder+"\\"+file,outfolder+"\\"+file.split('_')[0]+".swc")
+
+def renameSwc2(infolder,outfolder):
+    for file in os.listdir(infolder):
+        if file[-3:] == 'swc':
+            shutil.copy(infolder+"\\"+file,outfolder+"\\"+str(int((file.split('.')[0]).split('_')[1]))+".swc")
+
+
+def scaleSwc(inpath,outpath,scale):
+    file = open(inpath)
+    lines = file.readlines();
+    file.close()
+
+    output = open(outpath, 'w');
+    for i in range(len(lines)):
+        if lines[i][0] == '#':
+            output.write(lines[i])
+            continue
+        lines[i] = lines[i].strip('\n');
+        lines[i] = lines[i].split(' ');
+        output.write("{} {} {} {} {} {} {}\n".format(eval(lines[i][0]), lines[i][1], eval(lines[i][2])*scale,
+                                                     eval(lines[i][3])*scale, eval(lines[i][4])*scale, lines[i][5],
+                                                     eval(lines[i][6])))
+        # print(lines[i])
+    output.close()
+
+def scaleFolder(infolder,outfolder,scale):
+    for file in os.listdir(infolder):
+        if file[-3:] == 'swc':
+            scaleSwc(infolder+"\\"+file,outfolder+"\\"+file,scale)
+
+def disBetSwc(manualSwc,autoSwc,resultPath):
+    commandStr = "D:/v3d_external/bin/vaa3d_msvc.exe " \
+                 "/x D:\\vaa3d_tools\\bin\plugins\\neuron_utilities\\neuron_distance\\neuron_dist.dll " \
+                 "/f neuron_distance " \
+                 "/i  {} {} " \
+                 "/p 2 /o {}".format(manualSwc, autoSwc,resultPath)
+    os.system(commandStr)
+
+def disBetSwcFolder(manualFolder,autoFolder,distanceFolder):
+    count=0;
+    for file in os.listdir(manualFolder):
+        if file[-3:] == 'swc':
+
+            if os.path.exists(autoFolder+"\\"+file):
+                count = count + 1
+                disBetSwc(manualFolder+"\\"+file,autoFolder+"\\"+file,distanceFolder+"\\"+file.split('.')[0]+".txt")
+                # if count>2:
+                #     break
+
+
+def outputExcel(distanceFolder):
+    data = {}
+    tmplines=[]
+    # print(i)
+    for j in os.listdir(distanceFolder):
+
+        tmpline = [];
+        distanceFile = open(distanceFolder+"\\"+j);
+        lines = distanceFile.readlines();
+        id=0;
+        onlyOne=1
+        for line in lines:
+            if line[0] == 'i':
+                id=line.strip('\n').split('\\')[-1].split('.')[0];
+                if onlyOne:
+                    tmpline.append(int(id));
+                    onlyOne=0;
+                continue
+            line = line.strip('\n');
+            line = line.split('=');
+            try:
+                line[-1]=float(line[-1]);
+            except:
+                # print(line[-1])
+                line[-1]=-1;
+            tmpline.append(float(line[-1]));
+            # print(tmpline)
+        tmplines.append(tmpline)
+
+    data[0]= tmplines
+
+
+    # print(distanceFolder+i+".csv")
+    outfile = open(distanceFolder + "\\..\\" + distanceFolder.split("\\")[-1] + ".csv", 'w');
+    # print("{},{},{},{},{},{},{}".format("manual_To_"+i.split('s')[-1],i.split('s')[-1]+"_To_manual","average of bi-directional entire-structure-averages","differen-structure-average ",4,5,6))
+    outfile.write("{},{},{},{},{},{},{}\n".
+                  format("id", "manual_To_" + distanceFolder.split('\\')[-1], distanceFolder.split('\\')[-1] + "_To_manual",
+                         "average of bi-directional entire-structure-averages", "differen-structure-average ", 4, 5))
+    for j in data[0]:
+        # print(j)
+        if j[0]<0:
+            continue
+        outfile.write("{},{},{},{},{},{},{},{}\n".
+                      format(j[0], j[1], j[2], j[3], j[4], j[5], j[6],j[7]))
+
+def main():
+
+    brain=18454
+
+    app2Folder = "D:\soamdata\\ultratracer\\{}\\app2".format(brain)
+    app3Folder = "D:\soamdata\\ultratracer\\{}\\app3".format(brain)
+    manualFolder = "D:\soamdata\\ultratracer\\{}\\manual".format(brain)
+    mergeFolder = "D:\soamdata\\ultratracer\\{}\\merge_swc".format(brain)
+    app3_distance = "D:\soamdata\\ultratracer\\{}\\app3_distance".format(brain)
+    app2_distance = "D:\soamdata\\ultratracer\\{}\\app2_distance".format(brain)
+
+    if not os.path.exists(app2Folder):
+        os.mkdir(app2Folder);
+    if not os.path.exists(app3Folder):
+        os.mkdir(app3Folder);
+    if not os.path.exists(manualFolder):
+        os.mkdir(manualFolder);
+    if not os.path.exists(mergeFolder):
+        os.mkdir(mergeFolder);
+    if not os.path.exists(app3_distance):
+        os.mkdir(app3_distance);
+    if not os.path.exists(app2_distance):
+        os.mkdir(app2_distance);
+
+    #更改名称
+    renameSwc1("D:\\soamdata\\ultratracer\\{}\\{}_app2\individual".format(brain,brain),app2Folder);
+    renameSwc1("D:\\soamdata\\ultratracer\\{}\\{}_app3\individual".format(brain,brain),app3Folder);
+    renameSwc2("D:\soamdata\\ultratracer\\{}\\{}_manual".format(brain,brain),manualFolder);
+
+    #scale同一尺度
+
+
+    scaleFolder(app2Folder,app2Folder,1);
+    scaleFolder(app3Folder,app3Folder,1)
+
+    #mergeSwc
+
+    # shift_merge_Swc(["D:\soamdata\\ultratracer\\17302\\app2\\1.swc","D:\soamdata\\ultratracer\\17302\\app2\\1.swc","D:\soamdata\\ultratracer\\17302\\app2\\1.swc"],
+    #                 "D:\soamdata\\ultratracer\\17302\merge_swc\\1.swc",99999, 1000, 0, 0)
+    shift_merge_Swc_folder([manualFolder,app3Folder,app2Folder],mergeFolder)
+
+    #distance
+    disBetSwcFolder(manualFolder, app2Folder, app2_distance)
+    disBetSwcFolder(manualFolder,app3Folder,app3_distance)
+
+    #outexcel
+    outputExcel(app2_distance)
+    outputExcel(app3_distance)
 
 
 if __name__=="__main__":
-    # _20181224_()
-    # _20181228_()
-    # _20190103_();
+    # path="D:\\soamdata\\ultratracer\\17302\\17302_app2\individual\\2_8100.000_7804.000_1474.000.v3draw.marker_nc_APP2_GD.swc"
+    # shiftSwc(path,path+"\\..\\..\\..\\merge_swc\\"+path.split("\\")[-1]+"_shift.swc",10,10,10,999999);
+    main()
 
-    # _20190108_()
-    # _20190112_();
-    # _20190112_1('E:\mouseID_321237-17302\RES(27300x17206x4923)','D:\\soamdata\\17302\\level6.apo','D:\\soamdata\\17302\level6')
-    # _20190112_2('D:\\soamdata\\17302\\level6.apo','D:\\soamdata\\17302\level6')
-    # _20190116_3('E:\mouseID_321237-17302\RES(54600x34412x9847)','D:\\soamdata\\17302\\17302_74_.apo','D:\\soamdata\\17302\\unet_examples\\level7')
-    # _20190116_2('D:\\soamdata\\17302\\17302.apo', 'D:\\soamdata\\17302\\unet_examples\\level7')
 
-    # _20190116_3('E:\mouseID_321237-17302\RES(27300x17206x4923)', 'D:\\soamdata\\17302\\level6_74_.apo','D:\\soamdata\\17302\\unet_examples\\level6')
-    # _20190116_2('D:\\soamdata\\17302\\level6.apo','D:\\soamdata\\17302\\unet_examples\\level6')
-    # _20190116_0('D:\\soamdata\\17302\\unet_examples\\level7','D:\\soamdata\\17302\\unet_examples\\level7\\tif')
-    # _20190116_0('D:\\soamdata\\17302\\unet_examples\\unet_examples', 'D:\\soamdata\\17302\\unet_examples\\unet_examples')
-    # _20190116_zyb()
-    _20190116_2('D:\\soamdata\\17302\\17302.apo', 'D:\soamdata\\17302\\unet_examples\\unet_examples\\unix\\level7_976_unet_new')

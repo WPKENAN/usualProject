@@ -530,7 +530,7 @@ def makePlot(master):
     bgcolor = "#FFFFff"
     if plottype == "Skyplot":
         # fig = figure(figsize=(widthDistance, widthDistance), dpi=pixeldensity, facecolor=bgcolor, edgecolor='k')
-        fig = Figure(figsize=(widthDistance, widthDistance), dpi=pixeldensity, facecolor=bgcolor, edgecolor='k')
+        fig = Figure(figsize=(1.2 * widthDistance/1.62, 1.2 * widthDistance / 1.62), dpi=pixeldensity, facecolor=bgcolor, edgecolor='k')
         ax = fig.add_axes([0.1, 0.1, 0.8, 0.8], projection='polar', facecolor=bgcolor)
     else:
         # fig = figure(figsize=(1.6 * widthDistance, 1.2 * widthDistance / 1.62), dpi=pixeldensity, facecolor=bgcolor,
