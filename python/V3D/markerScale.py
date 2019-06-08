@@ -81,10 +81,10 @@ def scaleApo(apo,scale):
 
 
 if __name__=="__main__":
-    apopath="C:\\Users\\admin\Desktop\somalist\\18465\\18465.apo"
+    apopath="D:\\soamdata\\ultratracer\\18454_1024\\18454.apo"
     tail=apopath.split('\\')[-1].split('.')[0];
     allMarkerFolder=apopath+"\\..\\{}_allMarkerFolder".format(tail)
     MulMarkerFolder=apopath+"\\..\\{}_MulMarkerFolder".format(tail)
 
-    createMarker(apopath,1,512,512,128,allMarkerFolder,MulMarkerFolder,isMul=1)
+    createMarker(apopath,1,1024,1024,256,allMarkerFolder,MulMarkerFolder,isMul=1)
 

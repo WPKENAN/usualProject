@@ -21,7 +21,7 @@ def train():
     imagedata = imagedata[perm]
     maskdata = maskdata[perm]
 
-    unet2d = unet2dModule(512, 512, channels=3, costname="dice coefficient")
+    unet2d = unet2dModule(512, 512, channels=1, costname="dice coefficient")
     unet2d.train(imagedata, maskdata, "D:\github\\usualProject\python\\unet\model\\unet2dglandceil.pd",
                  "D:\github\\usualProject\python\\unet\log", 0.0005, 0.8, 100000, 2)
 
@@ -47,4 +47,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(2)
+    main(1)

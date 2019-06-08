@@ -6,13 +6,13 @@ import argparse
 import imutils
 import cv2
 import os
-
-norm_size = 128
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+norm_size = 64
 
 
 def predict(infolder,outfolder0,outfolder1):
-    labels_list = os.listdir(".\\images");
-    labels_list.sort();
+    labels_list = os.listdir(".\\images")
+    labels_list.sort()
 
     # load the trained convolutional neural network
     print("[INFO] loading network...")
@@ -20,8 +20,8 @@ def predict(infolder,outfolder0,outfolder1):
     model = load_model("lenet5.model")
 
     for file in os.listdir(infolder):
-        if file[-3:]=='png' or file[-3:]=='jpg' :
-            print(file)
+        # if file[-3:]=='png' or file[-3:]=='jpg'
+           # print(file)
             # load the image
             # image = cv2.imread(args["image"])
             image=cv2.imread(infolder+"\\"+file)
@@ -50,9 +50,9 @@ def predict(infolder,outfolder0,outfolder1):
             cv2.putText(output, label, (10, 25), cv2.FONT_HERSHEY_SIMPLEX,
                         0.7, (0, 255, 0), 2)
             if int(number)==0:
-                cv2.imwrite(outfolder0+"\\"+file,output);
+                cv2.imwrite(outfolder0+"\\"+file, output)
             else:
-                cv2.imwrite(outfolder1 + "\\" + file, output);
+                cv2.imwrite(outfolder1 + "\\" + file, output)
             # # show the output image
             # cv2.imshow("Output", output)
             # cv2.waitKey(0)
@@ -64,8 +64,8 @@ if __name__ == '__main__':
     # predict(args)
 
     infolder = "C:\\Users\Anzhi\Documents\\Tencent Files\\3272346474\FileRecv\\picture-sheji\\num\\num0"
-    outfolder0="C:\\Users\Anzhi\Documents\Tencent Files\\3272346474\FileRecv\\picture-sheji"
-    outfolder1="C:\\Users\Anzhi\Documents\Tencent Files\\3272346474\FileRecv\\picture-sheji"
+    outfolder0="C:\\Users\Anzhi\Documents\Tencent Files\\3272346474\FileRecv\\picture-sheji\\"
+    outfolder1="C:\\Users\Anzhi\Documents\Tencent Files\\3272346474\FileRecv\\picture-sheji\\"
     predict(infolder,outfolder0,outfolder1)
 
 

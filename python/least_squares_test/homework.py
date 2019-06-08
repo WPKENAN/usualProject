@@ -409,30 +409,3 @@ if __name__=="__main__":
     cv.imwrite('long.png',a)
     # cv.waitKey()
 
-    receiver = "18xxxxxx5@163.com"
-    sender = "64xxxxx71@qq.com"
-    pwd = "xaxxxxxxxd"      # 这里是64xxxxx71@qq.com邮箱的授权码
-
-    msg = MIMEMultipart()
-    msg["Subject"] = "有陌生人来访！"      # 邮件的主题
-    msg["From"] = sender
-    msg["To"] = receiver
-
-    part = MIMEText("请查收陌生人照片！")  # 邮件的正文
-    msg.attach(part)
-
-    # jpg类型附件
-    part = MIMEApplication(open('long.png', 'rb').read())      # 'apple.jpg'和该.py文件在同一个文件夹下
-    part.add_header('Content-Disposition', 'attachment', filename="apple.jpg")
-    msg.attach(part)
-
-    try:
-        s = smtplib.SMTP("smtp.qq.com", timeout=30)  # 连接smtp邮件服务器,端口默认是25
-        s.ehlo()
-        s.starttls()
-        s.login(sender, pwd)  # 登陆服务器
-        s.sendmail(sender, receiver, msg.as_string())  # 发送邮件
-        s.close()
-        print('邮件发送成功！')
-    except smtplib.SMTPException:
-        print('邮件发送失败！')

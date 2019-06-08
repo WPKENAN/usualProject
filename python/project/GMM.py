@@ -63,7 +63,7 @@ while True:
     Gamma2 = Alpha[0][1] * gauss2;
 
     M = Gamma1 + Gamma2;
-    print(M)
+    # print(M)
     # Gamma=np.concatenate((Gamma1/m,Gamma2/m),axis=1) 元素(j,k)为第j个样本来自第k个模型的概率，聚类时用来判别样本分类
     # Maximization
     # 更新Alpha

@@ -28,26 +28,27 @@ class App(tk.Frame):
         self.pre_label.pack()
 
 
-        ############################################################################################准备模型阶段,提高效率
-        self.norm_size = 128
-        self.labels_list = os.listdir(".\\images");
-        self.labels_list.sort();
+        #########准备模型阶段,提高效率
+        self.norm_size = 64
+        self.labels_list = os.listdir(".\\images")
+        self.labels_list.sort()
 
-        # load the trained convolutional neural network
+        # 加载已构建好的模型
         print("[INFO] loading network...")
         self.model = load_model("lenet5.model")
-        ################################################################################################
+        #####################################################
     def predictWord(self):
+
         image = cv2.imread(self.File)
         orig = image.copy()
-        # pre-process the image for classification
+        # 预处理图像进行分类
         image = cv2.resize(image, (self.norm_size, self.norm_size))
         image = image.astype("float") / 255.0
         image = img_to_array(image)
         image = np.expand_dims(image, axis=0)
-        # classify the input image
+        # 对输入图像进行分类
         result = self.model.predict(image)[0]
-        # print (result.shape)
+        # 显示结果
         proba = np.max(result)
         number = np.where(result == proba)[0]
         return self.labels_list[number[0]],proba*100
@@ -55,14 +56,14 @@ class App(tk.Frame):
     def processEvent(self, event):
         pass
 
-        # function to be called when mouse is clicked
+        # 按钮
     def printcoords(self):
         try:
             self.File = filedialog.askopenfilename(parent=root, initialdir=".\\images", title='Choose an image.')
-            self.path_label["text"]=self.File;
+            self.path_label["text"]=self.File
             label_name,val=self.predictWord()
-            self.pilImage = Image.open(self.File);
-            self.tkImage = ImageTk.PhotoImage(image=self.pilImage);
+            self.pilImage = Image.open(self.File)
+            self.tkImage = ImageTk.PhotoImage(image=self.pilImage)
             self.pre_label["text"]="这是:  {}    概率为:  {:.2f}% " .format(label_name,val)
             self.label["image"]=self.tkImage
         except:
