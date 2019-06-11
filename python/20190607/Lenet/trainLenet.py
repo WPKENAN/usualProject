@@ -127,16 +127,16 @@ class MODEL:
         if K.image_data_format() == "channels_first":   #for tensorflow
             inputShape = (depth, height, width)
         # 第一段
-        model.add(Conv2D(20, (3, 3),padding="same",input_shape=inputShape,kernel_regularizer=regularizers.l2(weight_decay)))
+        model.add(Conv2D(50, (3, 3),padding="same",input_shape=inputShape,kernel_regularizer=regularizers.l2(weight_decay)))
         model.add(Activation("relu"))
-        model.add(Conv2D(20, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
+        model.add(Conv2D(50, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
         # model.add(AveragePooling2D(pool_size=(2, 2), strides=(2, 2)))
         #第二段
-        model.add(Conv2D(30, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
+        model.add(Conv2D(50, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
         model.add(Activation("relu"))
-        model.add(Conv2D(30, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
+        model.add(Conv2D(50, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
         # model.add(AveragePooling2D(pool_size=(2, 2), strides=(2, 2)))
@@ -152,7 +152,7 @@ class MODEL:
 
         # 第4段
         model.add(Flatten())
-        model.add(Dense(1000))
+        model.add(Dense(4096))
         model.add(Activation("relu"))
         model.add(Dropout(0.5))
 
@@ -206,7 +206,7 @@ def train(aug, trainX, trainY, testX, testY):
     # initialize the model
     print("[INFO] compiling model...")
     # model = MODEL.Vgg(norm_size,norm_size,depth,0.0005,classNum=CLASS_NUM)
-    model = MODEL.Newnet(norm_size, norm_size, depth, 0.0005, classNum=CLASS_NUM)
+    model = MODEL.Lenet(norm_size, norm_size, depth, 0.0005, classNum=CLASS_NUM)
     model.summary()
     # model= keras.models.load_model('ResNet50.hdf5')
     adam = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)

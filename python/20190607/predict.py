@@ -11,8 +11,8 @@ if __name__=="__main__":
     CLASS_NUM = len(os.listdir(all))
     target_names=os.listdir(all)
 
-    x_test, Y_test = load_data(all)
-    # x_test, Y_test = load_data(val)
+    #x_test, Y_test = load_data(all)#全部图片
+    x_test, Y_test = load_data(val)#验证集的图片
 
     model=keras.models.load_model("./best.hdf5")
     Y_test = np.argmax(Y_test, axis=1)  # Convert one-hot to index这里把onehot转成了整数[1,2,10,1,2,1]
