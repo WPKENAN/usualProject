@@ -11,38 +11,16 @@ import random
 from sklearn.metrics import classification_report
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
-
-
-
-def loaddata(path):
-    path = "./data"
-    count = 0
-    for file in os.listdir(path):
-        target_names.append(file)
-        dataFile = os.path.join(path, file)
-        data = scio.loadmat(dataFile)
-        # print(data.keys())
-        keys = []
-        for key in data.keys():
-            keys.append(key)
-
-        # print(np.transpose(data[keys[-1]]).shape)
-        x = np.transpose(data[keys[-1]])
-        y = np.zeros((x.shape[0], 1)) + count
-
-        if count == 0:
-            allX = x;
-            allY = y;
-        else:
-            allX = np.vstack((allX, x[:800, :]))
-            allY = np.vstack((allY, y[:800, :]))
-        count = count + 1
-
-    return allX, allY
-
+import pandas as pd
+from keras.callbacks import TensorBoard
+from keras.callbacks import ModelCheckpoint
+from keras.regularizers import l2
+from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.callbacks import ReduceLROnPlateau
+from createModel import *
 #直接全部预测
 def predict_point_by_point():
-    allX, allY = loaddata("./data")
+    allX, allY = loaddata(path)
     index = list(range(len(allY)));
     random.shuffle(index)
     allX = allX[index, :]
@@ -79,7 +57,7 @@ def plotCM(classes, matrix, savname):
     plt.show()
 
 def printMatrix():
-    allX, allY = loaddata("./data")
+    allX, allY = loaddata(path)
     index = list(range(len(allY)));
     random.shuffle(index)
     allX = allX[index, :]
@@ -103,63 +81,119 @@ def printMatrix():
     plotCM(target_names, matrix, "")
 
 
-def train():
-    allX, allY = loaddata("./data")
+def train(allX,allY):
+    random.seed(0)
     index = list(range(len(allY)));
     random.shuffle(index)
     allX = allX[index, :]
     allY = allY[index, :]
-    val = 0.2
+    val = 0.8
 
     x_train, y_train = allX[0:int(len(allY) * val), :], allY[0:int(len(allY) * val), :]
     x_test, y_test = allX[int(len(allY) * val):, :], allY[int(len(allY) * val):, :]
 
+    # print(x_train.shape)
     x_train = x_train.reshape(-1, n_step, n_input)
     x_test = x_test.reshape(-1, n_step, n_input)
     x_train = x_train.astype('float32')
     x_test = x_test.astype('float32')
-    # x_train /= 5
-    # x_test /= 5
 
+    mean=np.mean(x_train)
+    std=np.std(x_train)
+
+    # mean=0;
+    # std=np.max(x_train)
+    print("Before normalize mean:{} std:{} ".format(mean,std))
+    x_train-=mean
+    x_train/=std
+    print("After normalize mean:{} std:{} ".format(np.mean(x_train),np.std(x_train)))
+    x_test -= mean
+    x_test /= std
+
+    print(x_train.shape)
     y_train = keras.utils.to_categorical(y_train, n_classes)
     y_test = keras.utils.to_categorical(y_test, n_classes)
-    model = Sequential()
-    model.add(LSTM(n_hidden, batch_input_shape=(None, n_step, n_input), return_sequences=True))
-    model.add(LSTM(n_hidden, return_sequences=False))
-    model.add(Dense(n_classes))
-    model.add(Activation('softmax'))
 
+    # model=MODEL.Lstm(n_step, n_input,n_hidden,weight_decay,n_classes)
+
+
+    # model=MODEL.Cnn(1600,weight_decay,n_classes)
+
+    x_train=np.reshape(x_train,(x_train.shape+(1,)))
+    x_test = np.reshape(x_test, (x_test.shape + (1,)))
+    model=MODEL.Newnet(n_input,n_step,1,weight_decay,n_classes)
+
+    rmsprop=keras.optimizers.RMSprop(lr=learning_rate)
     adam = Adam(lr=learning_rate)
     model.summary()
     model.compile(optimizer=adam,
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
 
-    model.fit(x_train, y_train,
+    model_checkpoint = ModelCheckpoint('best.hdf5', monitor='val_acc', verbose=1, save_best_only=True)
+    tb_cb = keras.callbacks.TensorBoard(log_dir="./log", write_images=1, histogram_freq=0)
+    reduce_lr = ReduceLROnPlateau(monitor='val_acc', patience=200, mode='auto')
+
+    H=model.fit(x_train, y_train,
               batch_size=batch_size,
               epochs=training_iters,
               verbose=1,
-              validation_data=(x_test, y_test))
+              validation_data=(x_test, y_test),
+              callbacks = [model_checkpoint, tb_cb,reduce_lr])
 
     model.save("./lasted.hdf5")
     scores = model.evaluate(x_test, y_test, verbose=0)
     print('LSTM test score:', scores[0])
     print('LSTM test accuracy:', scores[1])
 
-learning_rate = 0.001
-training_iters = 20
+    plt.style.use("ggplot")
+    plt.figure()
+    N = training_iters
+    plt.plot(np.arange(0, N), H.history["loss"], label="train_loss")
+    plt.plot(np.arange(0, N), H.history["val_loss"], label="val_loss")
+    plt.plot(np.arange(0, N), H.history["acc"], label="train_acc")
+    plt.plot(np.arange(0, N), H.history["val_acc"], label="val_acc")
+    plt.title("Training Loss and Accuracy on foot classifier")
+    plt.xlabel("Epoch #")
+    plt.ylabel("Loss/Accuracy")
+    plt.legend(loc="lower left")
+    plt.savefig("train.png")
+
+weight_decay=0.005
+learning_rate = 1e-4
+training_iters = 1000
 batch_size = 64
 display_step = 10
 
 n_input = 14
 n_step = 4
-n_hidden = 128
-n_classes = 10
+n_hidden = 600
+n_classes = 0
 target_names=[]
+path="../data/pro2_data/安徽"
 if __name__=="__main__":
-    istrain=0;#1 是训练 0 是输出混淆阵
-    if istrain:
-        train();
-    else:
-        printMatrix()
+    n_classes=len(os.listdir(path))
+    # loaddata(path)
+    allX = np.load("allX.npy")[:,:1600]
+    allY = np.load("allY.npy")
+    print(allX.shape)
+    print(allY.shape)
+    #
+    n_input=20
+    n_step=allX.shape[1]//n_input
+    train(allX,allY)
 
+# 2 804.0
+# 3 536.0
+# 4 402.0
+# 6 268.0
+# 8 201.0
+# 12 134.0
+# 24 67.0
+# 67 24.0
+# 134 12.0
+# 201 8.0
+# 268 6.0
+# 402 4.0
+# 536 3.0
+# 804 2.0

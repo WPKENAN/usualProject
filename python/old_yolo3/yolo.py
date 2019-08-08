@@ -17,10 +17,11 @@ from yolo3.model import yolo_eval, yolo_body, tiny_yolo_body
 from yolo3.utils import letterbox_image
 import os
 from keras.utils import multi_gpu_model
+import cv2
 
 class YOLO(object):
     _defaults = {
-        "model_path": 'model_data/yolo.h5',
+        "model_path": 'model_data/yolo_old.h5',
         "anchors_path": 'model_data/yolo_anchors.txt',
         "classes_path": 'model_data/voc_classes.txt',
         "score" : 0.3,
@@ -66,12 +67,9 @@ class YOLO(object):
         num_anchors = len(self.anchors)
         num_classes = len(self.class_names)
         is_tiny_version = num_anchors==6 # default setting
-        print(1)
         try:
-            print(2)
             self.yolo_model = load_model(model_path, compile=False)
         except:
-            print(3)
             self.yolo_model = tiny_yolo_body(Input(shape=(None,None,3)), num_anchors//2, num_classes) \
                 if is_tiny_version else yolo_body(Input(shape=(None,None,3)), num_anchors//3, num_classes)
             self.yolo_model.load_weights(self.model_path) # make sure model, anchors and classes match
@@ -138,7 +136,7 @@ class YOLO(object):
             box = out_boxes[i]
             score = out_scores[i]
 
-            label = '{} {:.2f}'.format(predicted_class, score)
+            label = '{} {}'.format(predicted_class, score)
             draw = ImageDraw.Draw(image)
             label_size = draw.textsize(label, font)
 
@@ -173,10 +171,8 @@ class YOLO(object):
         self.sess.close()
 
 def detect_video(yolo, video_path, output_path=""):
-    import cv2
     if video_path=='0':
-        video_path=0;
-
+        video_path=0
     vid = cv2.VideoCapture(video_path)
     if not vid.isOpened():
         raise IOError("Couldn't open webcam or video")

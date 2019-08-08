@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import copy
-
-
+from pylab import mpl
+import pandas as pd
 def Normal(x, mu, sigma):  # 一元正态分布概率密度函数
-    return np.exp(-(x - mu) ** 2 / (2 * sigma ** 2)) / (np.sqrt(2 * np.pi) * sigma);
+    return 1/(np.sqrt(2 * np.pi) * sigma)*np.exp(-((x - mu) *(x-mu) )/ (2 * sigma * sigma));
 
 def Exp(x,lanmda):#指数分布
     result=lanmda*np.exp(-lanmda*x);
@@ -26,7 +26,7 @@ def Wb(x,k,lanmda):
 '''
 
 def em(data,Mu,SigmaSquare,lanmda,Alpha):
-    Mus, SigmaSquares, lanmdas, Alphas=[],[],[],[]
+    Mus, SigmaSquares, lanmdas, Alphas,Probability=[],[],[],[],[]
 
     N=len(data)
     i = 0  # 迭代次数
@@ -37,7 +37,9 @@ def em(data,Mu,SigmaSquare,lanmda,Alpha):
     print("lanmda", lanmda)
     print("Alpha:", Alpha);
     print("****************************迭代开始******************************************")
+    # print(Normal(1.7419813,1.7419813,0.09193604))
     while True:
+
         if i>10000:
             break
         PreAlpha = Alpha.copy();
@@ -47,10 +49,23 @@ def em(data,Mu,SigmaSquare,lanmda,Alpha):
         gauss1 = Normal(data, Mu, np.sqrt(SigmaSquare));  # 模型一
         gauss2 = Exp(data, lanmda);
 
+        # print(data[3269],gauss1[3269],Mu,np.sqrt(SigmaSquare))
+        # plt.plot(gauss2/np.max(gauss2))
+        # plt.show()
+        # print()
+
+        # temp=1;
+        # for i in gauss1:
+        #     temp=temp*i;
+        # for i in gauss2:
+        #     temp=temp*i;
+        # Probability.append(temp)
         Gamma1 = Alpha[0][0] * gauss1;
         Gamma2 = Alpha[0][1] * gauss2;
 
         M = Gamma1 + Gamma2;
+
+        Probability.append(np.sum(M) / 2 / N)
         # print(M)
         # Gamma=np.concatenate((Gamma1/m,Gamma2/m),axis=1) 元素(j,k)为第j个样本来自第k个模型的概率，聚类时用来判别样本分类
         # Maximization
@@ -89,7 +104,8 @@ def em(data,Mu,SigmaSquare,lanmda,Alpha):
             print("Alpha:", Alpha);
             break;
 
-    return Mus,SigmaSquares,lanmdas,Alphas
+
+    return np.array(Mus),np.array(SigmaSquares),np.array(lanmdas),Alphas,Probability
 
 if __name__=="__main__":
     N = 10000;
@@ -121,35 +137,39 @@ if __name__=="__main__":
     b = 1 - a;
     Alpha = np.array([[a, b]]);
     # Alpha[0][0]#Alpha[0][1]
-    Mus, SigmaSquares, lanmdas, Alphas = em(data, Mu, SigmaSquare, lanmda, Alpha)
+    Mus, SigmaSquares, lanmdas, Alphas, Probability = em(data, Mu, SigmaSquare, lanmda, Alpha)
 
-    from pylab import mpl
+    df = pd.DataFrame(np.array(Probability))
+    df.to_csv("Probability.csv")
+    print(np.array(Probability).shape)
 
+    # print(Probability)
+    # print(Mus)
     mpl.rcParams['font.sans-serif'] = ['FangSong']  # 指定默认字体
     mpl.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
-
-    Mus=np.array(Mus)[:,0,0]
-    SigmaSquares = np.array(SigmaSquares)[:, 0, 0]
-    lanmdas = np.array(lanmdas)[:, 0, 0]
-    print(Mus)
-    plt.subplot(221)
-    plt.plot(Mus)
+    plt.subplot(231)
+    plt.plot(Mus[:,:,0])
     plt.title('Mus')
     # plt.show()
 
-    plt.subplot(222)
-    plt.plot(SigmaSquares)
+    plt.subplot(232)
+    plt.plot(SigmaSquares[:,:,0])
     plt.title("SigmaSquares")
 
-    plt.subplot(223)
-    plt.plot(lanmdas)
+    plt.subplot(233)
+    plt.plot(lanmdas[:,:,0])
     plt.title("lanmdas")
 
-    print(np.array(Alphas).shape)
-    plt.subplot(224)
+    # print(np.array(Alphas)[:,0,:])
+    plt.subplot(234)
     plt.plot(np.array(Alphas)[:, 0, 0], label='正态分布权重')
     plt.plot(np.array(Alphas)[:, 0, 1], label='指数分布权重')
     plt.legend()
     # plt.plot(Alphas[:, 1])
     plt.title("Alphas")
+
+    plt.subplot(235)
+    plt.plot(Probability)
+    plt.title("联合分布概率")
     plt.show()
+

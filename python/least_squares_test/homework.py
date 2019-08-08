@@ -394,18 +394,4 @@ if __name__=="__main__":
     plt.close()
 
 
-    imagelist=['全球各国的GDP TOP-100','各国GDP增长率 TOP-100',
-               '全球各国人均GDP TOP-100','各国货币储备 TOP-100',
-               '各国人口 TOP-100','各国通货膨胀率增长率 TOP-100',
-               'GDP增速比较','人均GDP比较','人口比较','总体GDP比较','印度 GDP-人口 一元回归','中国 GDP-人口 一元回归']
-    a=cv.imdecode(np.fromfile('{}.png'.format(imagelist[0]), dtype=np.uint8), -1)
-    for i in range(1,len(imagelist)):
-        print(i)
-        tmp=cv.imdecode(np.fromfile('{}.png'.format(imagelist[i]), dtype=np.uint8), -1)
-        a=np.vstack((a,tmp))
-        # cv.imshow('main',a)
-        # cv.waitKey(0)
-    # cv.imshow('main',a)
-    cv.imwrite('long.png',a)
-    # cv.waitKey()
 

@@ -3,6 +3,7 @@ import numpy as np
 import pywt
 import scipy.io as scio
 import matplotlib.pyplot as plt
+from pylab import mpl
 
 import pandas as pd
 from numpy.testing import (run_module_suite, assert_allclose, assert_,
@@ -79,32 +80,41 @@ def main():
     b = 1 - a;
     Alpha = np.array([[a, b]]);
     # Alpha[0][0]#Alpha[0][1]
-    Mus, SigmaSquares, lanmdas, Alphas=em(data, Mu, SigmaSquare, lanmda, Alpha)
+    Mus, SigmaSquares, lanmdas, Alphas,Probability=em(data, Mu, SigmaSquare, lanmda, Alpha)
 
-    from pylab import mpl
+    df = pd.DataFrame(np.array(Probability))
+    df.to_csv("Probability.csv")
+    print(np.array(Probability).shape)
+    # print(Probability)
+
 
     mpl.rcParams['font.sans-serif'] = ['FangSong']  # 指定默认字体
     mpl.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
-    plt.subplot(221)
+    plt.subplot(231)
     plt.plot(Mus)
     plt.title('Mus')
     # plt.show()
 
-    plt.subplot(222)
+    plt.subplot(232)
     plt.plot(SigmaSquares)
     plt.title("SigmaSquares")
 
-    plt.subplot(223)
+    plt.subplot(233)
     plt.plot(lanmdas)
     plt.title("lanmdas")
 
-    print(np.array(Alphas)[:,0,:])
-    plt.subplot(224)
+    # print(np.array(Alphas)[:,0,:])
+    plt.subplot(234)
     plt.plot(np.array(Alphas)[:,0,0],label='正态分布权重')
     plt.plot(np.array(Alphas)[:, 0, 1],label='指数分布权重')
     plt.legend()
     # plt.plot(Alphas[:, 1])
     plt.title("Alphas")
+
+
+    plt.subplot(235)
+    plt.plot(Probability)
+    plt.title("联合分布概率")
     plt.show()
 
 

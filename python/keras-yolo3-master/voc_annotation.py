@@ -4,7 +4,7 @@ from os import getcwd
 sets=[('2007', 'train'), ('2007', 'val'), ('2007', 'test')]
 
 classes = ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
-# classes=['car','person']
+
 
 def convert_annotation(year, image_id, list_file):
     in_file = open('VOCdevkit/VOC%s/Annotations/%s.xml'%(year, image_id))
@@ -25,7 +25,7 @@ wd = getcwd()
 
 for year, image_set in sets:
     image_ids = open('VOCdevkit/VOC%s/ImageSets/Main/%s.txt'%(year, image_set)).read().strip().split()
-    list_file = open('%s.txt'%(image_set), 'w')
+    list_file = open('%s_%s.txt'%(year, image_set), 'w')
     for image_id in image_ids:
         list_file.write('%s/VOCdevkit/VOC%s/JPEGImages/%s.jpg'%(wd, year, image_id))
         convert_annotation(year, image_id, list_file)
