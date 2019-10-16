@@ -34,8 +34,66 @@ from keras.callbacks import ModelCheckpoint
 from keras.callbacks import TensorBoard
 from keras import backend as K
 from keras.layers import Conv2D,MaxPool2D
+from keras.regularizers import l2
 
 class MODEL:
+
+
+    def resNet(width=64,height=64,depth=3,weight_decay=0.0005,classNum=0):
+        def Conv2d_BN(x, nb_filter, kernel_size, strides=(1, 1), padding='same', name=None):
+            if name is not None:
+                bn_name = name + '_bn'
+                conv_name = name + '_conv'
+            else:
+                bn_name = None
+                conv_name = None
+            x = Conv2D(nb_filter, kernel_size, padding=padding, strides=strides, activation='relu', name=conv_name)(x)
+            x = BatchNormalization(axis=3, name=bn_name)(x)
+            return x
+
+        def Conv_Block(input, nb_filter, kernel_size, strides=(1, 1), with_conv_shortcut=False):
+            x = Conv2d_BN(input, nb_filter=nb_filter[0], kernel_size=(1, 1), strides=strides, padding='same')
+            x = Conv2d_BN(x, nb_filter=nb_filter[1], kernel_size=(3, 3), padding='same')
+            x = Conv2d_BN(x, nb_filter=nb_filter[2], kernel_size=(1, 1), padding='same')
+            if with_conv_shortcut:
+                shortcut = Conv2d_BN(input, nb_filter=nb_filter[2], strides=strides, kernel_size=kernel_size)
+                x = add([x, shortcut])
+                return x
+            else:
+                x = add([x, input])
+                return x
+
+        input = Input(shape=(width, height, depth))
+
+        x = ZeroPadding2D((3, 3))(input)
+        x = Conv2d_BN(x, nb_filter=64, kernel_size=(7, 7), strides=(2, 2), padding='valid')
+        x = MaxPooling2D(pool_size=(3, 3), strides=(2, 2), padding='same')(x)
+
+        x = Conv_Block(x, nb_filter=[64, 64, 256], kernel_size=(3, 3), strides=(1, 1), with_conv_shortcut=True)
+        x = Conv_Block(x, nb_filter=[64, 64, 256], kernel_size=(3, 3))
+        x = Conv_Block(x, nb_filter=[64, 64, 256], kernel_size=(3, 3))
+
+        x = Conv_Block(x, nb_filter=[128, 128, 512], kernel_size=(3, 3), strides=(2, 2), with_conv_shortcut=True)
+        x = Conv_Block(x, nb_filter=[128, 128, 512], kernel_size=(3, 3))
+        x = Conv_Block(x, nb_filter=[128, 128, 512], kernel_size=(3, 3))
+        x = Conv_Block(x, nb_filter=[128, 128, 512], kernel_size=(3, 3))
+
+        #x = Conv_Block(x, nb_filter=[256, 256, 1024], kernel_size=(3, 3), strides=(2, 2), with_conv_shortcut=True)
+        #x = Conv_Block(x, nb_filter=[256, 256, 1024], kernel_size=(3, 3))
+        #x = Conv_Block(x, nb_filter=[256, 256, 1024], kernel_size=(3, 3))
+        #x = Conv_Block(x, nb_filter=[256, 256, 1024], kernel_size=(3, 3))
+        #x = Conv_Block(x, nb_filter=[256, 256, 1024], kernel_size=(3, 3))
+        #x = Conv_Block(x, nb_filter=[256, 256, 1024], kernel_size=(3, 3))
+
+        x = Conv_Block(x, nb_filter=[512, 512, 2048], kernel_size=(3, 3), strides=(2, 2), with_conv_shortcut=True)
+        x = Conv_Block(x, nb_filter=[512, 512, 2048], kernel_size=(3, 3))
+        x = Conv_Block(x, nb_filter=[512, 512, 2048], kernel_size=(3, 3))
+        x = AveragePooling2D(pool_size=(5, 5))(x)
+        x = Flatten()(x)
+        x = Dense(classNum, activation='softmax')(x)
+
+        model = Model(inputs=input, outputs=x)
+        return model
     def Vgg(width=64,height=64,depth=3,weight_decay=0.0005,classNum=0):
         model = Sequential(name='vgg16-sequential')
         input_shape=(width,height,depth)
@@ -81,78 +139,25 @@ class MODEL:
         model = Sequential()
         inputShape = (height, width, depth)
         # if we are using "channels last", update the input shape
-        if K.image_data_format() == "channels_first":  # for tensorflow
-            inputShape = (depth, height, width)
-        # 第一段
-        model.add(Conv2D(20, (5, 5), padding="same", input_shape=inputShape))
-        model.add(Activation("relu"))
-        # model.add(Conv2D(20, (5, 5), padding="same"))
-        # model.add(Activation("relu"))
-        model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-        # model.add(AveragePooling2D(pool_size=(2, 2), strides=(2, 2)))
-        # 第二段
-        model.add(Conv2D(50, (5, 5), padding="same"))
-        model.add(Activation("relu"))
-        # model.add(Conv2D(50, (3, 3), padding="same"))
-        # model.add(Activation("relu"))
-        model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-        # model.add(AveragePooling2D(pool_size=(2, 2), strides=(2, 2)))
-
-        # model.add(Conv2D(50, (3, 3), padding="same", kernel_regularizer=regularizers.l2(weight_decay)))
-        # model.add(Activation("relu"))
-        # model.add(Conv2D(50, (3, 3), padding="same", kernel_regularizer=regularizers.l2(weight_decay)))
-        # model.add(Activation("relu"))
-        # model.add(Conv2D(50, (3, 3), padding="same", kernel_regularizer=regularizers.l2(weight_decay)))
-        # model.add(Activation("relu"))
-        # model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-
-        # 第4段
-        model.add(Flatten())
-        model.add(Dense(1000))
-        model.add(Activation("relu"))
-        # model.add(Dropout(0.5))
-
-        # softmax 分类器
-        model.add(Dense(classNum))
-        model.add(Activation("softmax"))
-
-        # 返回构造的模型
-        return model
-
-    def Newnet(width=64,height=64,depth=3,weight_decay=0.0005,classNum=0):
-        # 初始化模型
-        model = Sequential()
-        inputShape = (height, width, depth)
-        # if we are using "channels last", update the input shape
         if K.image_data_format() == "channels_first":   #for tensorflow
             inputShape = (depth, height, width)
         # 第一段
-        model.add(Conv2D(50, (3, 3),padding="same",input_shape=inputShape,kernel_regularizer=regularizers.l2(weight_decay)))
+        model.add(Conv2D(20, (3, 3),padding="same",input_shape=inputShape,kernel_regularizer=regularizers.l2(weight_decay)))
+        model.add(Activation("relu"))
+        model.add(Conv2D(20, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
+        model.add(Activation("relu"))
+        model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
+        # model.add(AveragePooling2D(pool_size=(2, 2), strides=(2, 2)))
+        # 第二段
+        model.add(Conv2D(50, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
         model.add(Activation("relu"))
         model.add(Conv2D(50, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
         # model.add(AveragePooling2D(pool_size=(2, 2), strides=(2, 2)))
-        #第二段
-        model.add(Conv2D(50, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
-        model.add(Activation("relu"))
-        model.add(Conv2D(50, (3, 3), padding="same",kernel_regularizer=regularizers.l2(weight_decay)))
-        model.add(Activation("relu"))
-        model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-        # model.add(AveragePooling2D(pool_size=(2, 2), strides=(2, 2)))
-
-        #第三段
-        model.add(Conv2D(50, (3, 3), padding="same", kernel_regularizer=regularizers.l2(weight_decay)))
-        model.add(Activation("relu"))
-        model.add(Conv2D(50, (3, 3), padding="same", kernel_regularizer=regularizers.l2(weight_decay)))
-        model.add(Activation("relu"))
-        model.add(Conv2D(50, (3, 3), padding="same", kernel_regularizer=regularizers.l2(weight_decay)))
-        model.add(Activation("relu"))
-        model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-
-        # 第4段
+        # 第三段
         model.add(Flatten())
-        model.add(Dense(4096))
+        model.add(Dense(1000))
         model.add(Activation("relu"))
         model.add(Dropout(0.5))
 
@@ -179,7 +184,6 @@ def load_data(path):
     random.shuffle(imagePaths)
     # loop over the input images
     for imagePath in imagePaths:
-        # print(imagePath)
         # load the image, pre-process it, and store it in the data list
         # print(imagePath)
         image = cv2.imread(imagePath)
@@ -203,11 +207,15 @@ def load_data(path):
 
 
 def train(aug, trainX, trainY, testX, testY):
+    #CLASS_NUM
     # initialize the model
     print("[INFO] compiling model...")
     # model = MODEL.Vgg(norm_size,norm_size,depth,0.0005,classNum=CLASS_NUM)
-    model = MODEL.Lenet(norm_size, norm_size, depth, 0.0005, classNum=CLASS_NUM)
+    model = MODEL.resNet(norm_size, norm_size, depth, 0.0001, classNum=CLASS_NUM)
     model.summary()
+    from keras.utils import plot_model
+    plot_model(model, to_file='model.png')
+    return
     # model= keras.models.load_model('ResNet50.hdf5')
     adam = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
     # sgd = SGD(decay=0.0001, momentum=0.9)
@@ -216,7 +224,7 @@ def train(aug, trainX, trainY, testX, testY):
 
     # train the network
     print("[INFO] training network...")
-    model_checkpoint = ModelCheckpoint('best.hdf5', monitor='val_acc', verbose=1, save_best_only=True)
+    model_checkpoint = ModelCheckpoint('Vgg.hdf5', monitor='val_acc', verbose=1, save_best_only=True)
     tb_cb = keras.callbacks.TensorBoard(log_dir="./log", write_images=1, histogram_freq=0)
     # 设置log的存储位置，将网络权值以图片格式保持在tensorboard中显示，设置每一个周期计算一次网络的
     # 权值，每层输出值的分布直方图
@@ -226,7 +234,7 @@ def train(aug, trainX, trainY, testX, testY):
 
     # save the model to disk
     print("[INFO] serializing network...")
-    model.save(".//lasted.hdf5")
+    model.save(".//lasted.model")
 
     # plot the training loss and accuracy
     plt.style.use("ggplot")
@@ -236,7 +244,7 @@ def train(aug, trainX, trainY, testX, testY):
     plt.plot(np.arange(0, N), H.history["val_loss"], label="val_loss")
     plt.plot(np.arange(0, N), H.history["acc"], label="train_acc")
     plt.plot(np.arange(0, N), H.history["val_acc"], label="val_acc")
-    plt.title("Training Loss and Accuracy")
+    plt.title("Training Loss and Accuracy on foot classifier")
     plt.xlabel("Epoch #")
     plt.ylabel("Loss/Accuracy")
     plt.legend(loc="lower left")
@@ -244,11 +252,12 @@ def train(aug, trainX, trainY, testX, testY):
 
 
 CLASS_NUM=0
-EPOCHS = 250
-INIT_LR = 1e-3
-BS = 24
-norm_size = 200
+EPOCHS = 500
+INIT_LR = 1e-4
+BS = 10
+norm_size = 144
 depth=3
+
 if __name__ == '__main__':
     train_file_path = "./train";
     test_file_path = "./val"

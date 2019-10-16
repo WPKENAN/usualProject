@@ -1,5 +1,6 @@
 import os
 import sys
+import cv2
 def prunSwcFile(swcPath,outPath):
     swcfile=open(swcPath);
     swclines=swcfile.readlines();

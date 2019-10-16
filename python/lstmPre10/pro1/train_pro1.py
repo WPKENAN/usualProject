@@ -181,12 +181,23 @@ if __name__=="__main__":
     # loaddata(path)
     allX = np.load("./allX.npy")[:,:1600]
     allY = np.load("./allY.npy")
+
+    #plt.plot(allX[0,:1600])
+    #plt.show()
+
     print(allX.shape)
     print(allY.shape)
     #
     n_input=40
     n_step=allX.shape[1]//n_input
-    train(allX,allY)
+    #train(allX,allY)
+
+    img=allX[0,:1600]
+    img=np.reshape(img,(40,40))
+    plt.imshow(img, cmap='gray')
+    #print(img.shape)
+    #plt.show(img)
+    plt.show()
 
 # 2 804.0
 # 3 536.0

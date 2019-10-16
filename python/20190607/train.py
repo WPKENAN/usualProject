@@ -208,6 +208,9 @@ def train(aug, trainX, trainY, testX, testY):
     # model = MODEL.Vgg(norm_size,norm_size,depth,0.0005,classNum=CLASS_NUM)
     model = MODEL.Newnet(norm_size, norm_size, depth, 0.0005, classNum=CLASS_NUM)
     model.summary()
+    from keras.utils import plot_model
+    plot_model(model, to_file='model.png')
+
     # model= keras.models.load_model('ResNet50.hdf5')
     adam = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS)
     # sgd = SGD(decay=0.0001, momentum=0.9)
@@ -250,7 +253,7 @@ BS = 24
 norm_size = 200
 depth=3
 if __name__ == '__main__':
-    train_file_path = "./train";
+    train_file_path = "./val";
     test_file_path = "./val"
     CLASS_NUM = len(os.listdir(train_file_path))
 
